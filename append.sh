@@ -10,10 +10,10 @@
 # Example:     
 #		$ echo "This is something important I want logged to remember later"
 #		$ append
-#		$ [*] Retrieving last command: echo "This is something important I want logged to remember later"
-# 		$ [*] Command appended to command.log: /Users/Frank/Desktop/command.log
+#		  	[*] Retrieving last command: echo "This is something important I want logged to remember later"
+# 		  	[*] Command appended to command.log: /Users/Frank/Desktop/command.log
 #		$ cat command.log
-# 			   $ Mon Dec 14 10:55:10 PST 2015: echo "This is something important I want logged to remember later"
+#		  	Mon Dec 14 10:55:10 PST 2015: echo "This is something important I want logged to remember later"
 #
 # NOTE:        Must be sourced (Ex. $ source append.sh) to run properly, otherwise `history` will have nothing to report. See http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x237.html
 #
