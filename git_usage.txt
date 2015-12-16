@@ -1,0 +1,18 @@
+Git Usage Reference Sheet:
+
+mkdir github_project_folder
+cd github_project_folder
+git init
+git remote add origin https://github.com/username/myproject.git
+git remote -v
+git status - See status of what files have yet to be commit, any changes, current branch
+git add <FILE> - Add file to git repo
+git commit -m “Changes made in this commit"
+git push - Update all commits
+
+Online guides:  http://rogerdudler.github.io/git-guide/
+
+Git Manual: http://git-scm.com/book/en/v2
+
+Video Git: https://www.youtube.com/watch?v=8oRjP8yj2Wo&list=PLg7s6cbtAD165JTRsXh8ofwRw0PqUnkVH
+
