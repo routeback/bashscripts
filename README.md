@@ -1,9 +1,6 @@
 # Bash scripts
 This repository is a collection of bashscripts that [@routeback] has developed or is in the process of developing. These have been tested on Kali linux and Mac OSX with terminator and iTerm, respectively. Most of these scripts are for a single specific use and meant to be added to the local $PATH for convenience.
 
-### Version
-0.1
-
 ### Installation
 Simply run the scripts from a bash shell:
 ```sh
@@ -18,6 +15,10 @@ $ cd bashscripts; echo "export PATH=`pwd`:$PATH" >> ~/.bashrc
 
 ### Todos
  - Upload additional scripts
+
+### Version
+0.1 - Initial Upload 20151216
+
 
 License
 ----
