@@ -12,7 +12,7 @@ $ source append.sh
 
 Specify the path to them in your startup script or bash profile for more convenient usage
 ```sh
-$ git clone [git-repo-url]
+$ git clone https://github.com/routeback/bashscripts.git
 $ cd bashscripts
 $ echo "PATH=~/github/routeback/bashscripts:$PATH" >> ~/.bashrc
 ```
