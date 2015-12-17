@@ -2,15 +2,17 @@ Git Usage Reference Sheet:
 
 mkdir github_project_folder
 cd github_project_folder
-git init
-git remote add origin https://github.com/username/myproject.git
-git remote -v
+
+git init - Initialize an empty git or re-initialize an existing project
+git remote add origin https://github.com/username/myproject.git - Add remote git repo location
+git remote -v - View remote git repo location
 git status - See status of what files have yet to be commit, any changes, current branch
 git add <FILE> - Add file to git repo
 git commit -m “Changes made in this commit"
-git push - Update all commits
+git push - Push all commits
+git rebase - Update your local repo 
 
-Online guides:  http://rogerdudler.github.io/git-guide/
+Online guides: http://rogerdudler.github.io/git-guide/
 
 Git Manual: http://git-scm.com/book/en/v2
 
