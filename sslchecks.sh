@@ -101,6 +101,11 @@ function setnewtarget () {
 		main
 }
 
+function s_client_cert () {
+# echo | openssl s_client -connect $ip:$port 2>/dev/null | openssl x509 -noout -issuer -subject -dates
+# echo | openssl s_client -connect $ip:$port 2>/dev/null | openssl x509 -noout -text #Full output
+}
+
 function sslreneg () {
 echo "[*] SSL Renegotiation Checker"
 sslyze --reneg $ip:$port | tee $ip.sslyze
