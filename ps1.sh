@@ -10,6 +10,9 @@
 ###
 
 echo "[*] Quick PS1 Configuration Changer"
+echo "[*] NOTE: You may want to remember this for later!"
+echo "[*] Current configuration is:"
+echo $PS1
 echo "[*] What would you like PS1 to say?"
 read input
 
