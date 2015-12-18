@@ -1,11 +1,13 @@
 #!/bin/sh
 #  set -x # Echo on for taking screenshots in order to show commands used to confirm the finding
 #  set +x # Echo off until it's needed
-
-###
-# Automated IKE Aggressive Mode Scanner / Cracker
-# Frank Cass
-# 20151207
+#  set is used in a subshell so only the actual ike-scan and psk-cap commands are displayed in std out
+#
+# Name: ikeee.sh
+# Auth: Frank Cass
+# Date: 20151218
+# Desc: Automated IKE Aggressive Mode Scanner / Cracker
+#
 ###
 
 echo "[*] Please enter an IP"; read ip
