@@ -4,7 +4,8 @@
 # Auth: Frank Cass
 # Date: 20151218
 # Desc: Quickly set PS1
-#
+#	Must be sourced
+#	Ex. $ source ps1.sh#
 ###
 
 echo "[*] Quick PS1 Configuration Changer"
