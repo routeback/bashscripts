@@ -9,8 +9,7 @@
 ###
 
 echo "[*] Quick PS1 Configuration Changer"
-echo "[*] Current configuration is: "
-echo $PS1
+echo "[*] Current configuration is: " $PS1
 echo "[*] What would you like PS1 to say?"
 read input
 
@@ -24,8 +23,8 @@ read yn
 case $yn in
 	[yY] | [yY][Ee][Ss] )
 		echo "[*] Appending to ~/.bashrc"
-		echo "[*] New PS1 Configuration:" >> ~/.bashrc
-		echo "$PS1" >> ~/.bashrc
+		echo "# [*] New PS1 Configuration:" >> ~/.bashrc
+		echo "export PS1='$PS1'" >> ~/.bashrc
 		echo "[*] Exiting"
 		;;
 
@@ -36,4 +35,4 @@ case $yn in
 	*)
 		echo "[*] I do not understand"
 		;;
-	esac
+esac
