@@ -3,13 +3,15 @@
 #
 # Name: sslchecks.sh
 # Auth: Frank Cass
-# Date: 20151217
+# Date: 20151218
 # Desc: TUI Interface for performing SSL checks of certificates and vulnerabilities
+#
+#	This script a WIP
 #
 ###
 
-echo "$# parameters"
-echo "$@"
+# echo "$# parameters"
+# echo "$@"
 
 count=0
 ip=$1
@@ -22,30 +24,46 @@ function banner () {
 	echo " ___) |__) | |__| |___|  _  | |__| |___| . \ ___) |\__ \ | | |"
 	echo "|____/____/|_____\____|_| |_|_____\____|_|\_\____(_)___/_| |_|"
 	echo ""
-	echo "[*] Quick SSL Checker TUI with file output"
+	echo "       -= Quick SSL Checker TUI with file output =-"
+	}
+
+function target () {
+	if [ $# -lt 2 ]
+	then
+		echo "Usage: $0 IP Port"
+		exit
+	else
+		currenttarget $1 $2 $count
+	fi
 }
 
 function main () {
-echo "[*] SSLChecks.sh Main Menu"
 	if [ $count -gt 0 ]
 	then
-		echo "[*] Previous task complete"
+		echo "[*] Previous task complete!"
 	else
 		count=`expr $count + 1`
 	fi
-echo "[*] Please select an SSL check to be performed"
-echo "----1) SSLRenegotiation"
-echo "----2) Selection 2"
-echo "----9) Quit"
+	echo ""; echo "[*] -= SSLChecks.sh Main Menu =-"
+	echo "[*] Please select an SSL check to be performed"
+	echo "[*] Current Target: [$ip:$port]"; echo ""
+	echo "----1) SSLRenegotiation"
+	echo "----2) SSL POODLE"
+	echo "----3) LogJam"
+	echo "----4) FREAK"
+	echo "----5) Weak Hashing Algorithm"
+	echo "----6) Certificate Information"
+	echo "----7) "
+	echo "----8) "
+	echo "----9) Quit"
 	read sslcheck
 	case $sslcheck in
+
 		1)
-			echo "[*] SSL Renegotiation Check Selected"
 			sslreneg $1 $2
 			;;
 
 		2)
-			echo "Selection 2"
 			;;
 
 		9)
@@ -58,28 +76,18 @@ echo "----9) Quit"
 	esac
 }
 
-function target () {
-	if [ $# -lt 2 ]
-	then
-		echo "Usage: $0 IP Port"
-		exit
-	else
-		currenttarget $1 $2 $count
-	fi
-}
-
 function currenttarget () {
 	banner
 	if [ $count -gt 0 ]
 	then
-		echo "[*] Current Target: [$ip:$port]" # if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
-		echo "[*] Change Targets [y/n]"
-			read yn
-			case $yn in
-			[yY] | [yY][Ee][Ss] )
-        	        	echo "Target change requested"
-				setnewtarget
-	                	;;
+	# echo "[*] Current Target: [$ip:$port]" # if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
+	echo "[*] Change Targets [y/n]"
+		read yn
+		case $yn in
+		[yY] | [yY][Ee][Ss] )
+       	        	echo "Target change requested"
+			setnewtarget
+                	;;
 
 		        [nN] | [n|N][O|o] )
         		        echo "No change in targets";
@@ -90,44 +98,68 @@ function currenttarget () {
         		        ;;
 			esac
 	else
-		echo "[*] Current Target: [$ip:$port]"
+		# echo "[*] Current Target: [$ip:$port]"
 		main
 	fi
 }
 
 function setnewtarget () {
-		echo "Please enter an IP"; read ip
-                echo "Please enter a port"; read port
-		main
+	echo "[*] Setting new target"
+	echo "[!] Please enter an IP"; read ip
+        echo "[!] Please enter a port"; read port
+	main
 }
 
-function s_client_cert () {
+### SSL Check functions below ###
+
+#function s_client_cert () {
 # echo | openssl s_client -connect $ip:$port 2>/dev/null | openssl x509 -noout -issuer -subject -dates
 # echo | openssl s_client -connect $ip:$port 2>/dev/null | openssl x509 -noout -text #Full output
+#}
+
+function supports_ssl () {
+status="openssl s_client -connect $ip:$port" # timeout 30s, if exit code failure then goto SSL/TLS not supported
+
+# How to check?
+# Perform a check if the server supports SSL/TLS connections or not. If it does not, can try to force (like nmap -PN)
+# If it does not support SSL/TLS, do not continue with the check, and call setnewtarget
+}
+
+function no_ssl_support () {
+echo "[*] It appears this host does not support SSL/TLS connections."
+setnewtarget
 }
 
 function sslreneg () {
-echo "[*] SSL Renegotiation Checker"
-sslyze --reneg $ip:$port | tee $ip.sslyze
-echo "[*] Saved as $host.sslyze"
+echo "[*] -= SSL Renegotiation Checker =-"
+echo "[*] Checking for SSL/TLS support..."
+supports_ssl
+sslyze --reneg $ip:$port | tee $ip.$port.sslyze
+echo "[*] Saved as $ip.sslyze"
 main
 }
 
 function certinfo () {
-echo "[*] SSL Certificate Information"
+echo "[*] -= SSL Certificate Information =-"
+echo "[*] Checking for SSL/TLS support..."
+supports_ssl
 sslyze --certinfo=basic $ip:$port | tee $ip.certinfo # Ask for full or basic information?
 echo "[*] Certificate information saved as $ip.certinfo"
 main
 }
 
 function nmap_cert_info () {
-echo "[*] Nmap Certificate information scanner"
+echo "[*] -= Nmap Certificate information scanner =-"
+echo "[*] Checking for SSL/TLS support..."
+supports_ssl
 nmap -p $port -sV --script=ssl-cert.nse $ip -oN $ip.nmap_certificate
 main
 }
 
 function nmap_poodle () {
-echo "[*] Nmap SSL POODLE Scanner"
+echo "[*] -= Nmap SSL POODLE Scanner =-"
+echo "[*] Checking for SSL/TLS support..."
+supports_ssl
 nmap -p $port -sV --script=ssl-poodle.nse $ip -oN $ip.nmap_poodle # Add checking for ssl-poodle script
 # You do not have ssl-poodle.nse in your /usr/share/nmap/scripts folder. Download it with
 # wget -o ssl-poodle.nse <address>, then cp ssl-poodle.nse /usr/share/nmap/scripts; nmap --update-db # Then return to main
