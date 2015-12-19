@@ -3,10 +3,16 @@
 #
 # Name: sslchecks.sh
 # Auth: Frank Cass
-# Date: 20151218
+# Date: 20151219
 # Desc: TUI Interface for performing SSL checks of certificates and vulnerabilities
 #
 #	This script a WIP
+#	Todo: Implement all checks 1-8
+#	Todo: Implement checking for tool requirements before reaching main. See $require
+#	Todo: Save all files to ssl_checks folder
+#	Todo: Count total number of checks performed and echo at exit, pwd of ssl_checks
+#	Todo: Implement ability to import a file, line delimeted $ip:$port - Specify full path
+#	Goal: Try to keep it within 200 lines
 #
 ###
 
@@ -16,8 +22,13 @@
 count=0
 ip=$1
 port=$2
+require=curl,nmap,sslyze,openssl # Implement req. checks for all of the following
+				 # If they don't have curl or openssl, cannot proceed. Must have one
+				 # If they don't have nmap or sslyze, cannot proceed. Must have one
+				 # echo You do not meet the following requirements:
 
 function banner () {
+	clear
 	echo " ____ ____  _     ____ _   _ _____ ____ _  ______       _     "
 	echo "/ ___/ ___|| |   / ___| | | | ____/ ___| |/ / ___|  ___| |__  "
 	echo "\___ \___ \| |  | |   | |_| |  _|| |   | ' /\___ \ / __| '_ \ "
@@ -30,7 +41,7 @@ function banner () {
 function target () {
 	if [ $# -lt 2 ]
 	then
-		echo "Usage: $0 IP Port"
+		echo ""; echo "Usage: $0 IP Port"
 		exit
 	else
 		currenttarget $1 $2 $count
@@ -41,35 +52,57 @@ function main () {
 	if [ $count -gt 0 ]
 	then
 		echo "[*] Previous task complete!"
+		echo "[*] Take your screenshot now and copy any necessary information"
+		echo ""
+		echo "Return to main menu?"
+		echo "---y/n"
+		read yn
+		case $yn in
+		[yY] | [yY][Ee][Ss] )
+			echo "[!] Back to main menu in 5..."; sleep 0.5;echo "[!] 4.."; sleep 0.5;echo "[!] 3.."; sleep 0.5;echo "[!] 2.."; sleep 0.5;echo "[!] 1.."; sleep 0.5;
+			;;
+		[nN] | [n|N][O|o] )
+			echo "[*] Exiting"; echo ""; exit
+			;;
+		*)
+			echo "[*] I don't understand. To the main menu we go!"; sleep 2
+		esac
+		clear
 	else
 		count=`expr $count + 1`
 	fi
-	echo ""; echo "[*] -= SSLChecks.sh Main Menu =-"
-	echo "[*] Please select an SSL check to be performed"
-	echo "[*] Current Target: [$ip:$port]"; echo ""
-	echo "----1) SSLRenegotiation"
-	echo "----2) SSL POODLE"
-	echo "----3) LogJam"
-	echo "----4) FREAK"
-	echo "----5) Weak Hashing Algorithm"
-	echo "----6) Certificate Information"
-	echo "----7) "
-	echo "----8) "
-	echo "----9) Quit"
-	read sslcheck
-	case $sslcheck in
-
+banner
+echo ""; echo "[*] -= SSLChecks.sh Main Menu =-"
+echo "[*] Please select an SSL check to be performed"
+echo "[*] Current Target: [$ip:$port]"
+echo ""; echo "Vulnerabilities:"
+echo "----1) SSLRenegotiation"
+echo "----2) SSL POODLE"
+echo "----3) LogJam"
+echo "----4) FREAK"
+echo ""; echo "Certificate Information"
+echo "----5) Certificate Information"
+echo "----6) Weak Hashing Algorithm"
+echo ""; echo "Ciphers:"
+echo "----7) All Ciphers"
+echo "----8) Insecure Only (SSLv2/3, RC4, Null, Export)"
+echo ""; echo "Options:"
+echo "----C) Change Target"
+echo "----Q) Quit"
+read sslcheck
+case $sslcheck in
+# After selecting a choice, ex. FREAK or LogJam, give a brief description of the vulnerability
 		1)
 			sslreneg $1 $2
 			;;
-
 		2)
 			;;
-
-		9)
+		[qQ])
 			echo "[*] Exiting"; exit $?
 			;; # Also listten for keystroke Ctrl+C break and do 9|ctrl+c
-
+		[cC])
+			setnewtarget
+			;;
 		*)
 			echo "Invalid Option"
 			;;
@@ -108,6 +141,8 @@ function setnewtarget () {
 	echo "[!] Please enter an IP"; read ip
         echo "[!] Please enter a port"; read port
 	main
+# Unintended functionality when going back to main - Prints previous task complete; take screenshot, remove this message by jumping past it in main
+# If newtarget=$newtarget+1, then do not print previous task complete
 }
 
 ### SSL Check functions below ###
