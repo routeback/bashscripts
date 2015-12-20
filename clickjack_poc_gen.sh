@@ -8,13 +8,10 @@
 ###
 
 echo "[*] -= clickjack_poc_gen.sh =-"
-# echo "This script will create a .html file of the supplied URL within an iFrame to test for clickjacking"
 echo "[*] Desc: Quickly create a clickjacking test page and copy it to /var/www"
 echo "[*] Please enter a URL, such as http://example.com"; read url
-echo "[*] What shall we call the filename? (Will be suffixed automatically with .html)"
-read filename
-echo "[*] Please set height and width percentage (1-100)"
-read num
+echo "[*] What shall we call the filename? (Will be suffixed automatically with .html)"; read filename
+echo "[*] Please set height and width percentage (1-100)"; read num
 touch $filename.html
 cat > $filename.html <<EOF
 <html>
@@ -28,6 +25,5 @@ cat > $filename.html <<EOF
 </html>
 EOF
 echo "[!] Clickjacking PoC saved in your current direcotry as:" $filename.html
-cp $filename.html /var/www/$filename.html
-echo "[*] Also copied to /var/www/"
-echo "[*] Start your local webserver and try to browse to localhost/"$filename
+echo "[*] Copied to /var/www/"; cp $filename.html /var/www/$filename.html
+echo "[*] Start your local webserver and try to browse to localhost/"$filename.html
