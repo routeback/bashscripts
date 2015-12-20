@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -x
+# set -x # Troubleshooting
 #
 # Name: sslchecks.sh
 # Auth: Frank Cass
@@ -12,17 +12,21 @@
 #	Todo: Save all files to ssl_checks folder
 #	Todo: Count total number of checks performed and echo at exit, pwd of ssl_checks
 #	Todo: Implement ability to import a file, line delimeted $ip:$port - Specify full path
+# 	Todo: Main menu option to toggle saving output to files or to stdout only
+#		[F]ile Saving [On]/Off
+# 	Todo: Implement subshell with set -x enabled for each of the checks to print out the command that was used
+#	Todo: Implement main menu option for checking SSL/TLS support
 #	Goal: Try to keep it within 200 lines
 #
 ###
 
-# echo "$# parameters"
-# echo "$@"
+# echo "$# parameters"  # Troubleshooting
+# echo "$@"		# Troubleshooting
 
 count=0
 ip=$1
 port=$2
-require=curl,nmap,sslyze,openssl # Implement req. checks for all of the following
+# require=curl,nmap,sslyze,openssl # Implement req. checks for all of the following
 				 # If they don't have curl or openssl, cannot proceed. Must have one
 				 # If they don't have nmap or sslyze, cannot proceed. Must have one
 				 # echo You do not meet the following requirements:
@@ -54,10 +58,7 @@ function main () { # function check_counter () {
 		echo "[*] Previous task complete!"
 		echo "[*] Take your screenshot now and copy any necessary information"
 		echo ""
-		echo "Return to main menu?"
-		echo "---y/n"
-		read yn
-		case $yn in
+		echo "Return to main menu? [y/n]"; read yn; case $yn in
 		[yY] | [yY][Ee][Ss] )
 			echo "[!] Back to main menu in 5..."; sleep 0.5;echo "[!] 4.."; sleep 0.5;echo "[!] 3.."; sleep 0.5;echo "[!] 2.."; sleep 0.5;echo "[!] 1.."; sleep 0.5;
 			;;
@@ -147,40 +148,57 @@ function setnewtarget () {
 # If newtarget=$newtarget+1, then do not print previous task complete
 }
 
-### SSL Check functions below ###
+### SSL/TLS Check functions below ###
 
 function supports_ssl () {
-	# Perform a check if the server supports SSL/TLS connections or not. If it does not, provide the option to continue with the check anyway
-	# If it does not support SSL/TLS, do not continue with the check, and call setnewtarget, then return to main
-	echo "[*] Checking for SSL/TLS support..."
-	openssl s_client -connect $ip:$port 2> /dev/stdout 1> /dev/null | grep -q "refused" # ALT: curl --ssl-reqd -s -S https://$ip:$port | grep "couldn't"
+	# Perform a check if the server supports SSL/TLS connections or not.
+	# If it does not, provide the option to continue with the check anyway (force)
+	# If it does not, provide the option to change targets (setnewtarget)
+	echo "[*] Checking for SSL/TLS support..."; echo ""
+
+	ssl=$(timeout 3s openssl s_client -connect $ip:$port 2> /dev/stdout) # ALT: curl --ssl-reqd -s -S https://$ip:$port | grep couldn't
+	#refused="$ssl | grep -q \"refused\""
+	#accepted="grep -i \"SSL handshake\"" "$ssl"
+
+	echo "CURRENT EXIT CODE IS:" $? # Troubleshooting
+	echo "CHECKING SSL/TLS SUPPORT" # Troubleshooting
+
+	$refused # Check for refused, if so then jump to no_ssl_support. If not refused, perform the check again looking for the SSL/TLS handshake
+
 	if [[ $? == 0 ]] # If grep exit code is 0 because it found Connection refused, then goto no_ssl_support
 	then
 		no_ssl_support
 	else
-		echo "[*] Server appears to support SSL/TLS connections"
+		echo "[*] Appears to support SSL, looking for SSL handshake..."
+		$accepted # Check for accepted SSL Handshake, if not ssl handshake exit code 0 then run again once without grep for full output
+		echo "[*] Server $ip:$port appears to support SSL/TLS connections"
 	fi
 }
 
 function no_ssl_support () {
-echo "[!] It appears this host does not support SSL/TLS connections."
-echo "[*] Would you like to set a new target?"; echo "---y/n"; read yn; case $yn in
+echo ""; echo "[!] It appears this host does not support SSL/TLS connections."; echo ""
+echo "[*] Would you like to set a new target? [y/n]"; read yn; case $yn in
 	[yY] | [yY][Ee][Ss] )
 		setnewtarget
 		;;
 	[nN] | [n|N][O|o] )
 		echo "[*] Target unchanged. Force SSL Check or return to Main Menu?"
-		echo "---[F]orce / [M]ain"; read choice; case $choice in
+		echo "---[F]orce / [M]ain / [Q]uit"; read choice; case $choice in
 			[fF])
 				echo "[*] FORCE: Proceeding with SSL check"
 				;; # How to force the check when the checks all begin with supports_ssl function?
 			[mM])
 				main
 				;;
+			[qQ])
+				echo "[*] Exiting."
+				exit
+				;;
 			esac
 		;;
 	esac
 }
+
 
 function sslreneg () {
 echo "[*] -= SSL Renegotiation Checker =-"
