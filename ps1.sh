@@ -19,32 +19,21 @@ echo "	  | .__/|___/_(_)___/_| |_|"
 echo "	  |_| "
 echo ""
 echo "[*] -= Quick PS1 Configuration Changer =-"
+echo "\"He who rejects change is the architect of decay\""; sleep 2
 echo ""
-echo "[*] Current configuration is: "; echo ""; echo $PS1;
+echo "[*] Current configuration is: "; echo $PS1;
 echo ""
-}
-
-function quote () {
-echo "Quote:" "\"He who rejects change is the architect of decay\""; sleep 1.5
-}
-
-function dots () {
-t="[ ]"
-for i in {1..3}
-do
- 	echo $t; sleep 0.15
-done
 }
 
 function config () {
-echo "[*] What would you like PS1 to say?"; read input
+sleep 2; echo "[*] What would you like PS1 to say?"; read input
 export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[1;34m\]root\[\033[1;39m\]@$input:\[\033[00m\]\$ '
 echo "[!] PS1 Set!"
 echo ""
 }
 
 function greplscolors () {
-echo "[*] 1. Set ls and grep colors?"; echo "----y/n?"; read yn
+echo "[*] 1. Set ls and grep colors? [y/n]"; read yn
 
 	case $yn in
 	[yY] | [yY][Ee][Ss] )
@@ -63,7 +52,7 @@ echo "[*] 1. Set ls and grep colors?"; echo "----y/n?"; read yn
 }
 
 function append () {
-echo "[*] 2. Append your new PS1 to ~/.bashrc?"; echo "----y/n?"; read yn
+echo "[*] 2. Append your new PS1 to ~/.bashrc? [y/n]"; read yn
 
 	case $yn in
 	[yY] | [yY][Ee][Ss] )
@@ -84,8 +73,6 @@ echo "[*] 2. Append your new PS1 to ~/.bashrc?"; echo "----y/n?"; read yn
 }
 
 banner
-quote
-dots
 config
 greplscolors
 append
