@@ -233,6 +233,9 @@ echo "[*] Would you like to set a new target? [y/n]"; read yn; case $yn in
 				;;
 			esac
 		;;
+	*)
+		echo "[*] I don't understand!" # What happens after this? 
+		;;
 	esac
 }
 
@@ -248,6 +251,7 @@ check_counter
 
 # Menu option #2
 function nmap_poodle () {
+clear
 echo "[*] -= Nmap SSL POODLE Scanner =-"
 supports_ssl
 ( set -x; nmap -Pn -p $port -sV --script=ssl-poodle.nse $ip -oN $ip.nmap_poodle )
@@ -260,8 +264,10 @@ check_counter
 
 # Menu option #3
 function logjam () {
+clear
+echo ""; echo "[*] -= SSL/TLS LogJam Check =-"
 supports_ssl
-( set -x; openssl s_client -connect $ip:$port -cipher "EXP" )
+( set -x; openssl s_client -connect $ip:$port -cipher "EXP" | tee $ip.logjam )
 echo ""; echo "[*] Saved as $ip.logjam"
 check_counter
 }
@@ -273,7 +279,8 @@ check_counter
 
 # Menu option #5 - To be combined with number 6 to automatically check for the weak hashing algorithm
 function certinfo () {
-echo "[*] -= SSL Certificate Information =-"
+clear
+echo ""; echo "[*] -= SSL Certificate Information =-"
 supports_ssl
 ( set -x; sslyze --certinfo=basic $ip:$port | tee $ip.certinfo ) # Ask for full or basic information?
 echo "[*] Certificate information saved as $ip.certinfo"
@@ -282,7 +289,8 @@ check_counter
 
 # Menu option #n - To replace 6 as an alternate certificate information grabber
 function nmap_cert_info () {
-echo "[*] -= Nmap Certificate information scanner =-"
+clear
+echo ""; echo "[*] -= Nmap Certificate information scanner =-"
 supports_ssl
 ( set -x; nmap -p $port -sV --script=ssl-cert.nse $ip -oN $ip.nmap_certificate )
 check_counter
