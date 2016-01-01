@@ -12,5 +12,5 @@ read name
 echo "[*] Enter path to targets.ip"
 read targets
 echo "[*] Beginning WHOIS Lookup"; echo ""
-for i in $(cat $targets); do echo "WHOIS Lookup for: $i"; whois $i | grep $name; done
+for i in $(cat "$targets"); do echo "WHOIS Lookup for: $i"; whois -H $i | grep $name; done
 echo "[*] Done"; echo ""
