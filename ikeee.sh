@@ -1,13 +1,12 @@
 #!/bin/sh
-#  set -x # Echo on for taking screenshots in order to show commands used to confirm the finding
-#  set +x # Echo off until it's needed
-#  set is used in a subshell so only the actual ike-scan and psk-cap commands are displayed in std out
 #
 # Name: ikeee.sh
 # Auth: Frank Cass
 # Date: 20151218
-# Desc: Automated IKE Aggressive Mode Scanner / Cracker
+# Desc: Automated IKE Aggressive Mode Scanner, group ID enumerator and cracker
 #
+###
+
 # TODO: Implement Fingerprinting the VPN gateway for guessing implementation
 # 	ike-scan -M --showbackoff
 # TODO: Using Ike-force to enumerate the ID groupname
@@ -18,6 +17,10 @@
 # 	fiked -g 192.168.1.50 -k testgroup:secretkey -l output.txt -d
 # TODO: Ability to enter group ID if known before performing any scans (Note: will be applied to all IPs if scripted)
 #
+# Notes:
+#	- set -x # Echo on for taking screenshots in order to show commands used to confirm the finding
+#  	- set +x # Echo off until it's needed
+#  	- set is used in a subshell so only the actual ike-scan and psk-cap commands are displayed in std out
 ###
 
 echo "[*] Please enter an IP"; read ip
