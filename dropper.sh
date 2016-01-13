@@ -28,6 +28,12 @@ echo "[*] Installing Blacksheepwall"
 git clone https://github.com/tomsteele/blacksheepwall.git
 echo "[*] Installing Powershell Empire"
 git clone https://github.com/PowerShellEmpire/Empire.git
+echo "[*] Installing IkeForce"
+git clone https://github.com/SpiderLabs/ikeforce.git
+echo "[*] Installing SSLyze"
+git clone https://github.com/iSECPartners/sslyze.git
+echo "[*] Installing SSLScan"
+git clone https://github.com/rbsec/sslscan.git
 echo "[*] Done"
 
 
