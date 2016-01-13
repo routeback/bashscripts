@@ -36,6 +36,8 @@ echo "[*] Installing SSLScan"
 git clone https://github.com/rbsec/sslscan.git
 echo "[*] Installing Nikto"
 git clone https://github.com/sullo/nikto.git
+echo "[*] Installing Impacket"
+git clone https://github.com/CoreSecurity/impacket.git
 echo "[*] Done"
 
 
