@@ -34,6 +34,8 @@ echo "[*] Installing SSLyze"
 git clone https://github.com/iSECPartners/sslyze.git
 echo "[*] Installing SSLScan"
 git clone https://github.com/rbsec/sslscan.git
+echo "[*] Installing Nikto"
+git clone https://github.com/sullo/nikto.git
 echo "[*] Done"
 
 
