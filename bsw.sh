@@ -13,5 +13,4 @@ echo "[*] Provide a domain"; read domain
 echo "[*] Provide your Bing API key"; read bing
 echo "[*] Here we go..."
 ( set -x; for i in $(cat targets.ip); do blacksheepwall -fcrdns -bing $bing -reverse -robtex -srv -domain $domain -axfr -headers $i -json >> $output.bsw.json; done )
-cat $output.bsw.json | sort -n | uniq | sort -n | uniq > z; cat z > $output.bsw.json; rm z;
 echo "[*] Done. Output saved as `pwd`/$output.bsw.json"
