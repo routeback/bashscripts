@@ -3,7 +3,7 @@
 # Name: bsw.sh
 # Auth: Frank Cass
 # Date: 20160119
-# Desc: Quick blacksheepwall usage interactive script and parsing
+# Desc: Quick blacksheepwall usage interactive script
 #
 ###
 
