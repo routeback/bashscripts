@@ -1,4 +1,4 @@
-# Localhost nmap scanning research #
+# Localhost nmap Scanning Research #
 
 Name: 
 
@@ -30,8 +30,9 @@ This script automates the nmap and netcat scanning process for quick "open" port
 
 Is there any statistical correlation between the open ports that are found? 
 
-What would the results be after scanning the localhost 35535+ times, exceeding the expected exclusive open port range? 
-If so, would there be a duplicate "open" port entry??
+What would the results be after scanning the localhost 35535+ times, exceeding the expected exclusive open port range?
+ 
+If the scans exceeded 35536 tries, would there be a duplicate "open" port entry? Preliminary scans reveal that duplicate open ports were found before reaching this point. 
 
 ## Notes ##
 
