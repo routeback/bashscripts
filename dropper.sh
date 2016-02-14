@@ -6,7 +6,8 @@
 # Desc: Quick installation script for pentest tools
 #
 #	TODO: Implement Quiet git clone and wget
-#	TODO: Setup bashrc / alias / $PATH / export / Other config files (Terminator and SSH - Keys and config)
+#	TODO: Setup bashrc, including alias / export, $PATH
+#	TODO: Prompt for input of other config files (read input for terminator, ~/.ssh/config, /etc/hosts)
 #
 ###
 
@@ -38,6 +39,7 @@ echo "[*] Installing Nikto"
 git clone https://github.com/sullo/nikto.git
 echo "[*] Installing Impacket"
 git clone https://github.com/CoreSecurity/impacket.git
+echo "[*] Installing rdp-sec-check"
+git clone https://github.com/portcullislabs/rdp-sec-check.git
+# Potential Req:  perl -MCPAN -e "install Convert::BER"
 echo "[*] Done"
-
-
