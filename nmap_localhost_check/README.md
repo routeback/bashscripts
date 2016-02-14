@@ -15,11 +15,9 @@ Files:
 
 ## Intro ##
 
-* It's possible that these results are skewed by the out of date host and version of nmap used and could have been a bug that was already patched. *
-
 tl;dr This is a quick script to automate scanning the localhost NUM times with nmap and then checking each "open" port with netcat.
 
-Current estimates for running this script to scan the localhost 35536 times at ~0.20s per scan is approximately 118 minutes.
+*It's possible that these results are skewed by the out of date host and version of nmap used and could have been a bug that was already patched*
 
 ## Detailed ##
 
@@ -37,27 +35,29 @@ If so, would there be a duplicate "open" port entry??
 
 ## Notes ##
 
-Attempting to background / thread nmap with & when running the loop resulted in the testing VM to freeze, most likely due to memory / CPU limits imposed by the host VM software.
+*All information from nmap and netcat is output and appended to the logs folder for reference.
 
-The "open" ports seem to be in the 30000 - 65535 range exclusively.
+*The "open" ports range seems to be between TCP 30000 - 65535 exclusively.
 
-All information from nmap and netcat is output and appended to the logs folder for reference.
+*Attempting to background / thread nmap with & when running the loop resulted in the testing VM to freeze, most likely due to memory / CPU limits imposed by the host VM software.
 
-The -sT (TCP Scan)  option is used with nmap as it was the first option to successfully detect the open ports
+*The -sT (TCP Scan)  option is used with nmap as it was the first option to successfully detect the open ports
 
-Tested on: 
+*Current estimates for running this script to scan the localhost 35536 times at ~0.20s per scan is approximately 118 minutes.
 
-	Linux kali 3.18.0-kali3-586 #1 Debian 3.18.6-1~kali2 (2015-03-02) i686 GNU/Linux
-	Nmap 6.47
+## Tested on ##
+
+	* Host: Linux kali 3.18.0-kali3-586 #1 Debian 3.18.6-1~kali2 (2015-03-02) i686 GNU/Linux
+	* Nmap: 6.47
 
 ## Usage Example ##
 
-	./scan.sh
+	`./scan.sh`
 
-		[*] Name: scan.sh
-		[*] Desc: Scan localhost with nmap multiple times then netcat to each open port
-		[*] Number of nmap scans 35536
-		[*] Port range 30000-65535
-		[*] Scanning in 5 seconds
-	
-		[...snip...]
+		> [*] Name: scan.sh
+		> [*] Desc: Scan localhost with nmap multiple times then netcat to each open port
+		> [*] Number of nmap scans 35536
+		> [*] Port range 30000-65535
+		> [*] Scanning in 5 seconds
+		> 
+		> [...snip...]
