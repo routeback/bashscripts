@@ -15,7 +15,7 @@ Files:
 
 ## Intro ##
 
-tl;dr This is a quick script to automate scanning the localhost NUM times with nmap and then checking each "open" port with netcat.
+**tl;dr** This is a quick script to automate scanning the localhost NUM times with nmap and then checking each "open" port with netcat.
 
 *It's possible that these results are skewed by the out of date host and version of nmap used and could have been a bug that was already patched*
 
@@ -35,15 +35,15 @@ If so, would there be a duplicate "open" port entry??
 
 ## Notes ##
 
-*All information from nmap and netcat is output and appended to the logs folder for reference.
+All information from nmap and netcat is output and appended to the logs folder for reference.
 
-*The "open" ports range seems to be between TCP 30000 - 65535 exclusively.
+The "open" ports range seems to be between TCP 30000 - 65535 exclusively.
 
-*Attempting to background / thread nmap with & when running the loop resulted in the testing VM to freeze, most likely due to memory / CPU limits imposed by the host VM software.
+Attempting to background / thread nmap with & when running the loop resulted in the testing VM to freeze, most likely due to memory / CPU limits imposed by the host VM software.
 
-*The -sT (TCP Scan)  option is used with nmap as it was the first option to successfully detect the open ports
+The -sT (TCP Scan)  option is used with nmap as it was the first option to successfully detect the open ports
 
-*Current estimates for running this script to scan the localhost 35536 times at ~0.20s per scan is approximately 118 minutes.
+Current estimates for running this script to scan the localhost 35536 times at ~0.20s per scan is approximately 118 minutes.
 
 ## Tested on ##
 
@@ -52,12 +52,12 @@ If so, would there be a duplicate "open" port entry??
 
 ## Usage Example ##
 
-	`./scan.sh`
+	./scan.sh
 
-		> [*] Name: scan.sh
-		> [*] Desc: Scan localhost with nmap multiple times then netcat to each open port
-		> [*] Number of nmap scans 35536
-		> [*] Port range 30000-65535
-		> [*] Scanning in 5 seconds
-		> 
-		> [...snip...]
+		$ [*] Name: scan.sh
+		$ [*] Desc: Scan localhost with nmap multiple times then netcat to each open port
+		$ [*] Number of nmap scans 35536
+		$ [*] Port range 30000-65535
+		$ [*] Scanning in 5 seconds
+		$ 
+		$ [...snip...]
