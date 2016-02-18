@@ -11,6 +11,8 @@
 #
 ###
 
+echo "[*] dropper.sh"
+echo "[*] Desc: Quick installation script for common pentest tools."
 echo "[*] Where to install tools to? Ex. /home/scripts"
 read install
 mkdir -p $install
@@ -42,4 +44,7 @@ git clone https://github.com/CoreSecurity/impacket.git
 echo "[*] Installing rdp-sec-check"
 git clone https://github.com/portcullislabs/rdp-sec-check.git
 # Potential Req:  perl -MCPAN -e "install Convert::BER"
+echo "[*] Installing Veil"
+git clone https://github.com/Veil-Framework/Veil
+cd Veil; ./Install.sh -c; echo "[*] Veil Setup Complete"
 echo "[*] Done"
