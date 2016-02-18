@@ -18,7 +18,7 @@ read baseurl
 echo "[*] Generating Dorks list"
 cat << EOF >> $baseurl.dorks # Will prevent output of below echo's from being displayed; can then use column to print the output from the file
 [-] Search for directory listing vulnerabilities: 	site:$baseurl intitle:index.of
-[-] Search for configuration files: 			site:$baseurl ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini"
+[-] Search for configuration files: 			site:$baseurl ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini
 [-] Search for database files: 				site:$baseurl ext:sql | ext:dbf | ext:mdb
 [-] Search for log files: 				site:$baseurl ext:log
 [-] Search for backup and old files:			site:$baseurl ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup
