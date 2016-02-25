@@ -9,19 +9,21 @@
 ###
 
 function ps1_banner () {
-echo ""; echo "	    root@YourInputHere:#"
+echo ""
+echo "	    root@YourInputHere:#"
 echo "	             _       _     "
 echo "	   _ __  ___/ |  ___| |__  "
 echo "	  | '_ \/ __| | / __| '_ \ "
 echo "	  | |_) \__ \ |_\__ \ | | |"
 echo "	  | .__/|___/_(_)___/_| |_|"
 echo "	  |_| "; echo ""
-echo "\"He who rejects change is the architect of decay\""; echo ""
-echo "[*] Desc: Quick PS1 Configuration Changer"
+echo "	   Quick PS1 Prompt Changer"
+echo ""
+echo " \"He who rejects change is the architect of decay\""; echo "" # Quote by Harold Wilson
 }
 
 function ps1_config () {
-sleep 2; echo ""; echo "[*] Current configuration:" $PS1; echo ""
+echo "[*] Current configuration:" $PS1
 read -p "[*] Please input what you would like your prompt to display: " input
 export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[1;34m\]root\[\033[1;39m\]@$input:\[\033[00m\]\$ '
 echo "[*] Updated PS1 Set!"
@@ -36,7 +38,7 @@ read -p "[*] Would you like to change grep and ls colors too? [y/n] " yn; case $
                 ;;
 
         [nN] | [n|N][O|o] )
-		echo ""; echo "[*] Exiting"
+		return 0
                 ;;
 
 	*)
@@ -46,7 +48,7 @@ read -p "[*] Would you like to change grep and ls colors too? [y/n] " yn; case $
 }
 
 function append_to_bashrc () {
-read -p "[*] Would you like to append your updated PS1 to ~/.bashrc? [y/n] " yn; case $yn in
+read -p "[*] Would you like to append your updated PS1, grep and ls colors to ~/.bashrc? [y/n] " yn; case $yn in
 	[yY] | [yY][Ee][Ss] )
 		echo "[*] Appending to ~/.bashrc"
 		echo "# [*] New PS1 Configuration:" >> ~/.bashrc
@@ -57,7 +59,7 @@ read -p "[*] Would you like to append your updated PS1 to ~/.bashrc? [y/n] " yn;
 		;;
 
 	[nN] | [n|N][O|o] )
-		echo ""; echo "[*] Exiting"
+		echo "[*] Exiting"
 		;;
 
 	*)
