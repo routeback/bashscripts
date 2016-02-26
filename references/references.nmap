@@ -1,0 +1,38 @@
+# References File: Nmap
+
+# Common .NSE Scripts for Vulnerability Validation:
+
+http-vuln-cve2015-1635.nse
+
+# Common Discovery Scanning Techniques
+
+nmap -sP -PE -iL -n --stats-every 10s --initial-rtt-timeout=60s --max-rtt-timeout=500ms --host-timeout=5m targets.ip -oG pingsweep
+nmap -n -sn -PE --stats-every 10s --host-timeout 5s --max-retries 3 --min-rate 1500 --open --append-output -oA disco
+cat pingsweep.grep | awk '/Up/{print $2}' >> alive.ip
+
+# Common Port Scanning Techniques
+
+nmap -iL targets.ip -p- -sS --open -O -v -n -Pn --append-output -oA sS_verbose_OS
+nmap -iL alive.ip --open -sSU -Pn -v -p T:21,22,23,25,53,80,86,110,135,139,143,389,443,445,587,1433,1434,2301,2381,3306,3389,4443,47001,5500,5900,5901,5985,5986,7080,8080,8081,8082,8089,8000,8180,8443,U:53,69,123,161,500 -n -oA scans --stats-every 10s
+
+# Automated TCP / UDP Scan + Parsing
+
+nmap -iL targets.ip --excludefile exclude.ip -sS -Pn -v --open -n --reason -p- --stats-every 10s -oA sS 
+nmap -iL targets.ip --excludefile exclude.ip -sU -Pn -v --open -n --reason -p 53,69,123,137,161,500 --stats-every 10s -oA sU 
+
+# Timestamping scan results
+
+-oA scan_name_`date --rfc-3339=date`  # Ex. scan_name_2016-02-26
+
+# TCP SCAN
+
+nmap -iL targets.ip -n -sS -p 21,22,23,25,53,80,86,110,135,139,143,389,443,445,587,1433,1434,2301,2381,3306,3389,4443,47001,5500,5900,5901,5985,5986,7080,8080,8081,8082,8089,8000,8180,8443 --stats-every 10s --host-timeout 5s --max-retries 3 --min-rate 1500 --open --append-output -oA tcp
+
+# UDP SCAN 
+
+nmap -iL targets.ip -n -sU -p 53,69,123,137,161,500 --stats-every 10s --host-timeout 5s --max-retries 3 --min-rate 1500 --open --append-output -oA udp
+
+# Scripted Version Scan based off of open-ports folder
+
+for file in $(ls); do port=$(echo $file | cut -d "." -f1); nmap -iL $file -p $port -sV -sSU -sC -Pn -n -v --append-output -oA versions; done
+
