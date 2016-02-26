@@ -1,0 +1,15 @@
+# References File: Metasploit
+
+service postgresql status # pre msf start
+db_status # post msf start
+workspace # view spaces. * represents default
+workspace <name> # switch space
+workspace -a (add) -d (del) <name>
+workspace -h # Help menu
+help # look at db_* commands
+db_import ~/<gig>/scans/<range>.nmap
+hosts
+services
+creds
+loot
+
