@@ -1,0 +1,7 @@
+# References File: Grep
+
+grep -i  # Case Insensitive
+grep -v  # Remove
+grep -A [num]  # Print num lines after matching string
+grep -B [num]  # Print num lines before matching string
+grep 'string1\|string2\|string3'  # Search for multiple strings
