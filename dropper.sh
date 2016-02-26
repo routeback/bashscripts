@@ -14,7 +14,7 @@
 
 echo "[*] dropper.sh"
 echo "[*] Desc: Quick installation script for common pentest tools."
-read -p "[*] Where to install tools to? [Ex. /root/scripts]" install
+read -p "[*] Where to install tools to? [Ex. /root/scripts]: " install
 mkdir -p $install; cd $install
 echo "[*] Installing bashscripts"
 git clone https://github.com/routeback/bashscripts.git
