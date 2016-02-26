@@ -27,10 +27,12 @@ $ cd bashscripts; echo "export PATH=`pwd`:$PATH" >> ~/.bashrc; source ~/.bashrc
 
 ### Todos
 Complete development folder scripts.
+
 Complete sslchecks.sh
 
 ### Version
 0.1 - Initial Upload 20151216
+
 0.2 - Cleanup and re-organization 20160226
 
 License
