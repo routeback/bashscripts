@@ -5,6 +5,8 @@ Other scripts, such as sslchecks.sh and ikeee.sh are meant to act as a wrapper f
 
 For instance, sslchecks.sh provides a quick TUI for capturing evidence of multiple SSL vulnerabilities and outputting the results to a file.
 
+The ikeee.sh script can be used to capture IKE aggressive mode Pre-Shared Keys (PSK) for offline cracking.
+
 ### Installation
 Simply clone the repository, open the directory and run the scripts from a bash shell.
 
