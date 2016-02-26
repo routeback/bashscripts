@@ -1,26 +1,35 @@
 # Bash scripts
-This repository is a collection of bashscripts that [@routeback] has developed or is in the process of developing. These have been tested on Kali linux and Mac OSX with terminator and iTerm, respectively. Most of these scripts are for a single specific use and meant to be added to the local $PATH for convenience.
+This repository is a collection of bashscripts that [@routeback] has developed or is in the process of developing. These have been tested on Kali linux and Mac OSX with terminator and iTerm, respectively. Most of these scripts are meant to be added to the local $PATH for convenience. Refer to references/references.bashrc for examples.
 
-Other scripts, such as sslchecks.sh are meant to provide a quick TUI for capturing evidence of multiple SSL vulnerabilities and outputting the results to a file. 
+Other scripts, such as sslchecks.sh and ikeee.sh are meant to act as a wrapper for other tools to automate validating common vulnerabilities.
+
+For instance, sslchecks.sh provides a quick TUI for capturing evidence of multiple SSL vulnerabilities and outputting the results to a file.
 
 ### Installation
-Simply run the scripts from a bash shell:
+Simply clone the repository, open the directory and run the scripts from a bash shell.
+
+The following scripts are meant to be executed with the source command: append.sh, ps1.sh. 
+
+Example:
+
 ```sh
 $ source append.sh
+$ source ps1.sh
 ```
 
-Specify the path to them in your startup script or bash profile for more convenient usage
+Specify the path to the scripts for a more convenient usage:
 ```sh
 $ git clone https://github.com/routeback/bashscripts.git
 $ cd bashscripts; echo "export PATH=`pwd`:$PATH" >> ~/.bashrc; source ~/.bashrc
 ```
 
 ### Todos
- - Upload additional scripts
+Complete development folder scripts.
+Complete sslchecks.sh
 
 ### Version
 0.1 - Initial Upload 20151216
-
+0.2 - Cleanup and re-organization 20160226
 
 License
 ----
