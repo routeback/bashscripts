@@ -18,3 +18,8 @@ Git Manual: http://git-scm.com/book/en/v2
 
 Video Git: https://www.youtube.com/watch?v=8oRjP8yj2Wo&list=PLg7s6cbtAD165JTRsXh8ofwRw0PqUnkVH
 
+Initial Setup:
+
+git config --global user.name <username>
+git config --global user.email <email>
+git config --global core.editor [nano|emacs|vim]
