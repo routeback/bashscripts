@@ -42,6 +42,8 @@ echo "[*] Installing Nikto"
 git clone https://github.com/sullo/nikto.git
 echo "[*] Installing Impacket"
 git clone https://github.com/CoreSecurity/impacket.git
+echo "[*] Installing Parsero"
+git clone https://github.com/behindthefirewalls/Parsero.git
 echo "[*] Installing rdp-sec-check"
 git clone https://github.com/portcullislabs/rdp-sec-check.git
 # Potential Req and additional setup required:  perl -MCPAN -e "install Convert::BER"
