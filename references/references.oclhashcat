@@ -1,0 +1,39 @@
+# References File: oclhashcat
+
+* Outfile Formats:
+
+    1 = hash[:salt]
+    2 = plain
+    3 = hash[:salt]:plain
+    4 = hex_plain
+    5 = hash[:salt]:hex_plain
+    6 = plain:hex_plain
+    7 = hash[:salt]:plain:hex_plain
+
+--outfile=FILE
+--outfile-format=NUM
+
+* Attack modes:
+
+    0 = Straight
+    1 = Combination
+    3 = Brute-force
+    6 = Hybrid dict + mask
+    7 = Hybrid mask + dict
+
+-a (Attack-mode) 
+
+* Hash types:
+
+  5300 = IKE-PSK MD5
+  5400 = IKE-PSK SHA1
+  5500 = NetNTLMv1-VANILLA / NetNTLMv1+ESS
+  5600 = NetNTLMv2
+
+-m (Hash type)
+
+* Other
+
+--status (automatic status update) --status-time=NUM (seconds between status update)
+--session=NAME (--restore), --runtime=NUM (abord after NUM seconds)
+
