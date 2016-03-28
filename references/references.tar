@@ -1,0 +1,23 @@
+# References File: tar, scp, md5sum
+
+Run txt_conversion.sh from bashscripts to prepare files for Windows transfer
+
+Tar the archive # Compress, Verbose, Filename
+	$ tar -cvf <output.tar> /directory_1 [/directory2 /directory3]
+
+Generate MD5 sums
+	$ md5sum <output.tar> > output.md5
+
+Transfer the file via SCP # From remote host to localhost
+	$ scp root@hostname:/path/to/file.tar /root/file.tar
+
+Transfer the file via SCP # From localhost to remote host
+	$ scp /path/to/local/file.tar root@hostname:/path/to/copy/file.tar
+
+Verify MD5 sum after transfer
+	$ md5sum <copied.tar> > copied.md5
+	$ diff output.md5 copied.md5
+
+Untar the archive # Extract, Verbose, Filename
+	$ tar --no-same-owner --no-same-permissions -xvf <output.tar>
+
