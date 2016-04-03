@@ -2,7 +2,7 @@
 #
 # Name: dropper.sh
 # Auth: Frank Cass
-# Date: 20151231
+# Date: 20160413
 # Desc: Quick installation script for pentest tools
 #
 #	TODO: Implement Quiet git clone and wget
@@ -48,6 +48,19 @@ echo "[*] Installing iPwn Scripts"
 git clone https://github.com/altjx/ipwn
 echo "[*] Installing rdp-sec-check"
 git clone https://github.com/portcullislabs/rdp-sec-check.git
+echo "[*] Installing Lynis System Auditor"
+git clone https://github.com/CISOfy/lynis.git
+echo "[*] Installing CrackMapExec"
+git clone https://github.com/byt3bl33d3r/CrackMapExec.git
+echo "[*] Installing Etherleak"
+wget -O etherleak.pl https://www.exploit-db.com/download/3555
+# Run ether leak, then separately hping3 -1 -d 0 1 <IP>
+echo "[*] Installing Javaws"
+apt-get install icedtea-netx # (javaws for launch.jnlp files)
+echo "[*] Installing SMBExec"
+git clone https://github.com/brav0hax/smbexec.git
+echo "[*] Installing Nmap script: vmware-fingerprint.nse"
+git clone https://gist.github.com/10695801.git; mv 10695801/vmware-fingerprint.nse /usr/share/nmap/scripts; rm -r 10695801
 # Potential Req and additional setup required:  perl -MCPAN -e "install Convert::BER"
 echo "[*] Installing Veil"
 git clone https://github.com/Veil-Framework/Veil
