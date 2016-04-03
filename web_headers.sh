@@ -8,7 +8,8 @@
 ###
 
 if [ -z "$1" ]; then
-echo "[*] Please specify a line delimeted file of http and https IPs or websites"
+echo "[*] Please specify a line delimeted file of IP:PORT"
+echo "[*] Note: If port is not specified, port 80 will be used"
 echo "[*] Usage : $0 <path/to/web.ip>"
 exit 0
 fi
