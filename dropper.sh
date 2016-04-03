@@ -62,7 +62,7 @@ apt-get install icedtea-netx # (javaws for launch.jnlp files, such as when conne
 echo "[*] Installing SMBExec"
 git clone https://github.com/brav0hax/smbexec.git
 echo "[*] Installing Nmap script: vmware-fingerprint.nse"
-git clone https://gist.github.com/10695801.git; mv 10695801/vmware-fingerprint.nse /usr/share/nmap/scripts; rm -r 10695801
+git clone https://gist.github.com/10695801.git; mv 10695801/vmware-fingerprint.nse /usr/share/nmap/scripts; rm -r 10695801; nmap --script-updatedb > /dev/null
 echo "[*] Installing Veil"
 git clone https://github.com/Veil-Framework/Veil
 cd Veil; ./Install.sh -c; echo "[*] Veil Setup Complete"
