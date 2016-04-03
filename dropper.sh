@@ -48,8 +48,8 @@ echo "[*] Installing iPwn Scripts"
 git clone https://github.com/altjx/ipwn
 echo "[*] Installing rdp-sec-check"
 git clone https://github.com/portcullislabs/rdp-sec-check.git
-perl -MCPAN -e "install Convert::BER"
-cpan install Encoding::BER
+perl -MCPAN -e "install Convert::BER" > /dev/null
+cpan install Encoding::BER > /dev/null
 echo "[*] Installing Lynis System Auditor"
 git clone https://github.com/CISOfy/lynis.git
 echo "[*] Installing CrackMapExec"
