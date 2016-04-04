@@ -63,6 +63,8 @@ echo "[*] Installing SMBExec"
 git clone https://github.com/brav0hax/smbexec.git
 echo "[*] Installing Nmap script: vmware-fingerprint.nse"
 git clone https://gist.github.com/10695801.git; mv 10695801/vmware-fingerprint.nse /usr/share/nmap/scripts; rm -r 10695801; nmap --script-updatedb > /dev/null
+echo "[*] Installing Nmap script: ms15-034.nse"
+wget -O /usr/share/nmap/scripts/ms15-034.nse https://raw.githubusercontent.com/pr4jwal/quick-scripts/master/ms15-034.nse
 echo "[*] Installing Veil"
 git clone https://github.com/Veil-Framework/Veil
 cd Veil; ./Install.sh -c; echo "[*] Veil Setup Complete"
