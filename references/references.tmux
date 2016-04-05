@@ -126,22 +126,25 @@ t  big clock
 Configurations Options:
 
 # Mouse support - set to on if you want to use the mouse
-* setw -g mode-mouse off
-* set -g mouse-select-pane off
-* set -g mouse-resize-pane off
-* set -g mouse-select-window off
+tmux setw -g mode-mouse off
+tmux set -g mouse-select-pane off
+tmux set -g mouse-resize-pane off
+tmux set -g mouse-select-window off
 
 # Set the default terminal mode to 256color mode
 set -g default-terminal "screen-256color"
 
 # enable activity alerts
-setw -g monitor-activity on
-set -g visual-activity on
+tmux set -g monitor-activity on
+tmux set -g visual-activity on
 
 # Center the window list
-set -g status-justify centre
+tmux set -g status-justify centre
 
 # Maximize and restore a pane
 unbind Up bind Up new-window -d -n tmp \; swap-pane -s tmp.1 \; select-window -t tmp
 unbind Down
 bind Down last-window \; swap-pane -s tmp.1 \; kill-window -t tmp
+
+# Enable the mouse
+tmux set mouse on
