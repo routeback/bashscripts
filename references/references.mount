@@ -1,0 +1,5 @@
+# References File: mount
+
+mount -r -t cifs //IP/FILESHARE -o username=null,password=null /mnt/smb
+smbclient \\\\192.168.31.67\\tmp
+smbclient -L <IP>
