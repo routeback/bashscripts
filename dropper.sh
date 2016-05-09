@@ -86,6 +86,9 @@ apt-get install icedtea-netx
 echo "[*] Installing SMBExec"
 git clone https://github.com/brav0hax/smbexec.git
 
+echo "[*] Installing WhatWeb"
+git clone https://github.com/urbanadventurer/WhatWeb.git
+
 ### NMAP SCRIPTS ###
 echo "[*] Installing nmap script: vmware-fingerprint.nse"
 git clone https://gist.github.com/10695801.git; mv 10695801/vmware-fingerprint.nse /usr/share/nmap/scripts; rm -r 10695801
