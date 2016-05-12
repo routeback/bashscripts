@@ -2,7 +2,7 @@
 #
 # Name: dropper.sh
 # Auth: Frank Cass
-# Date: 20160420
+# Date: 20160512
 # Desc: Quick installation script for pentest tools
 #
 #	TODO: Implement Quiet git clone and wget
@@ -18,92 +18,92 @@ read -p "[*] Where to install tools to? [Ex. /root/scripts]: " install
 mkdir -p $install; cd $install
 
 ### TOOLS ###
-echo "[*] Installing bashscripts"
+echo ""; echo "[*] Installing bashscripts"
 git clone https://github.com/routeback/bashscripts.git
 
-echo "[*] Installing Responder"
+echo ""; echo "[*] Installing Responder"
 git clone https://github.com/SpiderLabs/Responder.git
 
-echo "[*] Installing CredCrack"
+echo ""; echo "[*] Installing CredCrack"
 git clone https://github.com/gojhonny/CredCrack.git
 
-echo "[*] Installing InSpy"
-wget -O InSpy.py https://raw.githubusercontent.com/gojhonny/Pentesting-Scripts/master/InSpy.py
+echo ""; echo "[*] Installing InSpy"
+git clone https://github.com/gojhonny/InSpy.git
 
-echo "[*] Installing PwnPaste"
+echo ""; echo "[*] Installing PwnPaste"
 git clone https://github.com/gojhonny/pwnpaste.git
 
-echo "[*] Installing Blacksheepwall"
+echo ""; echo "[*] Installing Blacksheepwall"
 git clone https://github.com/tomsteele/blacksheepwall.git
 
-echo "[*] Installing Powershell Empire"
+echo ""; echo "[*] Installing Powershell Empire"
 git clone https://github.com/PowerShellEmpire/Empire.git
 
-echo "[*] Installing RIDEnum"
+echo ""; echo "[*] Installing RIDEnum"
 git clone https://github.com/trustedsec/ridenum.git
 
-echo "[*] Installing IkeForce"
+echo ""; echo "[*] Installing IkeForce"
 git clone https://github.com/SpiderLabs/ikeforce.git
 
-echo "[*] Installing SSLyze"
+echo ""; echo "[*] Installing SSLyze"
 git clone https://github.com/iSECPartners/sslyze.git
 
-echo "[*] Installing SSLScan"
+echo ""; echo "[*] Installing SSLScan"
 git clone https://github.com/rbsec/sslscan.git
 
-echo "[*] Installing Nikto"
+echo ""; echo "[*] Installing Nikto"
 git clone https://github.com/sullo/nikto.git
 
-echo "[*] Installing Impacket"
+echo ""; echo "[*] Installing Impacket"
 git clone https://github.com/CoreSecurity/impacket.git
 
-echo "[*] Installing Parsero"
+echo ""; echo "[*] Installing Parsero"
 git clone https://github.com/behindthefirewalls/Parsero.git
 
-echo "[*] Installing iPwn Scripts"
+echo ""; echo "[*] Installing iPwn Scripts"
 git clone https://github.com/altjx/ipwn
 
-echo "[*] Installing rdp-sec-check"
+echo ""; echo "[*] Installing rdp-sec-check"
 git clone https://github.com/portcullislabs/rdp-sec-check.git
-echo "[*] Installing dependencies"
+echo ""; echo "[*] Installing dependencies for rdp-sec-check"
 perl -MCPAN -e "install Convert::BER" > /dev/null
 cpan install Encoding::BER > /dev/null
 
-echo "[*] Installing Lynis System Auditor"
+echo ""; echo "[*] Installing Lynis System Auditor"
 git clone https://github.com/CISOfy/lynis.git
 
-echo "[*] Installing CrackMapExec"
+echo ""; echo "[*] Installing CrackMapExec"
 git clone https://github.com/byt3bl33d3r/CrackMapExec.git
 
-echo "[*] Installing Etherleak"
+echo ""; echo "[*] Installing Etherleak"
 # To use, run ether leak while pinging a target with hping3 -1 -d 0 1 <IP>
 wget -O etherleak.pl https://www.exploit-db.com/download/3555
 
-echo "[*] Installing Javaws"
+echo ""; echo "[*] Installing Javaws"
 # Installs the javaws tool for opening launch.jnlp files
-apt-get install icedtea-netx
+apt-get -y install icedtea-netx
 
-echo "[*] Installing SMBExec"
+echo ""; echo "[*] Installing SMBExec"
 git clone https://github.com/brav0hax/smbexec.git
 
-echo "[*] Installing WhatWeb"
+echo ""; echo "[*] Installing WhatWeb"
 git clone https://github.com/urbanadventurer/WhatWeb.git
 
 ### NMAP SCRIPTS ###
-echo "[*] Installing nmap script: vmware-fingerprint.nse"
+echo ""; echo "[*] Installing nmap script: vmware-fingerprint.nse"
 git clone https://gist.github.com/10695801.git; mv 10695801/vmware-fingerprint.nse /usr/share/nmap/scripts; rm -r 10695801
 
-echo "[*] Installing nmap script: ms15-034.nse"
+echo ""; echo "[*] Installing nmap script: ms15-034.nse"
 wget -O /usr/share/nmap/scripts/ms15-034.nse https://raw.githubusercontent.com/pr4jwal/quick-scripts/master/ms15-034.nse
 
-echo "[*] Updating nmap script database"; nmap --script-updatedb > /dev/null
+echo ""; echo "[*] Updating nmap script database"; nmap --script-updatedb > /dev/null
 
 ### PAYLOADS ###
-echo "[*] Installing Veil"
+echo ""; echo "[*] Installing Veil"
 git clone https://github.com/Veil-Framework/Veil
 cd Veil; ./Install.sh -c; echo "[*] Veil Setup Complete"
 
-echo "[*] Grabbing Web Payloads"
+echo ""; echo "[*] Grabbing Web Payloads"
 git clone https://github.com/foospidy/payloads.git
 
 echo "[*] Done"
