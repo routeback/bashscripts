@@ -16,6 +16,8 @@ rm /tmp/lyric_curl.html > /dev/null 2>&1; rm /tmp/lyrics.html > /dev/null 2>&1
 
 function ascii_art () {
 echo ""
+echo " \"Music can change the world, because it can change people.\" Bono"
+echo ""
 echo " ___|)___________________________________________________________"
 echo "|___/____________________________________________________________"
 echo "|__/|____________________________________________________________"
@@ -95,10 +97,6 @@ read -p  "[*] Would you like to save these lyrics to a file: [Y/N] " answer
 	esac
 }
 
-function goodbye () {
-	echo ""; echo "	\"Music can change the world, because it can change people.\" - Bono"; echo ""
-}
-
 # Call all of the functions
 
 ascii_art
@@ -106,4 +104,3 @@ query
 urlquery
 printlyrics
 savelyrics
-goodbye
