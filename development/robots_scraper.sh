@@ -17,7 +17,8 @@
 #	TODO: Ability to discern HTTPS:// & 443--Check for HTTPS, try and if fail then fallback to HTTP
 #	TODO: Implement check with WC for file to contain > 0 lines of data & read access, check for nonzero exit code (failure)
 #	TODO: Test outputting to single file, or multiple files. When printing ip:port, use alternative to :
-#
+#	TODO: Add checking each robots file for sitemap.xml, if found, say X of the N searched sites contain robots with sitemap info, retrieve / spider this information?
+#	TODO: Ability to specify the user agent as a VAR in the script or as read input
 #	TEST: Hostname list and : port
 #	TEST: IP:PORT, IP
 #

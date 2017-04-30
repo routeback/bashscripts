@@ -1,0 +1,23 @@
+# References File: Post-Ex
+
+http://pwnwiki.io/#!index.md
+
+Windows File Searching:
+
+dir /s *pass*
+dir /s *cred*
+dir /s *vnc*
+dir /s *.config
+dir s/*.key* 
+dir s/*ica* 
+dir s/*crt* 
+dir s/*log* 
+dir s/*.sql* 
+C:\sysprep.inf
+C:\sysprep\sysprep.xml
+%WINDIR%\Panther\Unattend\
+%WINDIR%\Panther
+Unattended.xml
+reg query HKCU /F password /t REG_SZ /s | clip
+reg query HKLM /F password /t REG_SZ /s | clip
+
