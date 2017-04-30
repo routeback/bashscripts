@@ -22,7 +22,7 @@ echo ""; echo "[*] Installing bashscripts"
 git clone https://github.com/routeback/bashscripts.git
 
 echo ""; echo "[*] Installing Responder"
-git clone https://github.com/SpiderLabs/Responder.git
+git clone https://github.com/lgandx/Responder.git
 
 echo ""; echo "[*] Installing CredCrack"
 git clone https://github.com/gojhonny/CredCrack.git
@@ -38,6 +38,12 @@ git clone https://github.com/tomsteele/blacksheepwall.git
 
 echo ""; echo "[*] Installing Powershell Empire"
 git clone https://github.com/PowerShellEmpire/Empire.git
+
+echo ""; echo "[*] Installing Snarf SMB MitM"
+git clone https://github.com/purpleteam/snarf
+
+echo ""; echo "[*] Installing EyeWitness"
+git clone https://github.com/ChrisTruncer/EyeWitness
 
 echo ""; echo "[*] Installing RIDEnum"
 git clone https://github.com/trustedsec/ridenum.git
