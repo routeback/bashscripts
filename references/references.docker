@@ -1,0 +1,62 @@
+# References File: Docker usage
+# Desc: Reference of commonly used docker commands
+
+# Run Image / Connect interactively
+
+docker run -it <image>
+
+# List docker containers
+
+docker ps -l
+
+# Commit changes made within a container to a new name (or itself)
+
+docker commit <Container ID> <Image-name>
+
+# List Images
+
+docker images
+
+# Detach and re-attach
+
+CTRL-Q - Detach
+CTLR-P - Re-attach
+
+# Alternatively
+
+docker attach <UID>
+exit # After attaching
+
+# Run command in container
+
+docker run ubuntu bash -c <command>
+
+# Cleanup - View all / Remove Images or Containers
+
+docker ps -a
+docker rm <UID>
+
+# Basic Commands:
+
+$ sudo docker info                                 —  shows docker status and configuration
+$ sudo docker ps                                   — show docker containers
+$ sudo docker ps -l                               — show “latest” docker container -l = lower case L
+$ sudo docker ps -a                               — show “all” docker container; even those not running
+$ sudo docker images                           — show docker images (and tags)
+$ sudo docker run -it <container> <app>       — connect / login to work interactively on container
+$ systemctl status docker                     — show status and log for docker  <CTRL-C> to exit
+# sudo systemctl enable docker          — enable docker <not usually needed> using system control
+# sudo systemctl start docker             —  start docker <if it was stopped>
+$ sudo service docker stop                  — Stop docker service
+$ sudo service docker start                 — Start docker service
+$ sudo service docker restart              — restart docker service
+$ sudo usermod -aG docker <AdminUser>    — Add the <AdminUser> to Linux Authorized users for docker replace <AdminUser> with your username must log out and log back in for it to take affect
+
+# Example script to start lair and use a data volume for exporting data to the host, then execute the lairstart.sh script within the container to bring the application online.
+
+docker run -d -it -v ~/lairdata:/root/lairdata -p 11013:11013 lair:fresh /bin/bash -c "cd /root/lair; ./lairstart.sh"
+
+# -it interactive
+# -d Daemon
+# -p 11013:11013 port forward
+# -v attached data volume for persistence
