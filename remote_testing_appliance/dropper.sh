@@ -2,7 +2,7 @@
 #
 # Name: dropper.sh
 # Auth: Frank Cass
-# Date: 20160512
+# Date: 20170514
 # Desc: Quick installation script for pentest tools
 #
 #	TODO: Implement Quiet git clone and wget
@@ -14,6 +14,18 @@
 
 echo "[*] dropper.sh"
 echo "[*] Desc: Quick installation script for common pentest tools."
+
+which wget &>/dev/null
+if [[ $? -ne 0 ]]; then
+    echo "[!] wget needs to be installed to run this script"
+    exit 1
+fi
+which git &>/dev/null
+if [[ $? -ne 0 ]]; then
+    echo "[!] git needs to be installed to run this script"
+    exit 1
+fi
+
 read -p "[*] Where to install tools to? [Ex. /root/scripts]: " install
 mkdir -p $install; cd $install
 
@@ -71,7 +83,7 @@ git clone https://github.com/altjx/ipwn
 
 echo ""; echo "[*] Installing rdp-sec-check"
 git clone https://github.com/portcullislabs/rdp-sec-check.git
-echo ""; echo "[*] Installing dependencies for rdp-sec-check"
+echo ""; echo "[*] Installing dependencies for rdp-sec-check, this may take a few moments"
 perl -MCPAN -e "install Convert::BER" > /dev/null
 cpan install Encoding::BER > /dev/null
 
@@ -115,4 +127,4 @@ cd Veil; ./Install.sh -c; echo "[*] Veil Setup Complete"
 echo ""; echo "[*] Grabbing Web Payloads"
 git clone https://github.com/foospidy/payloads.git
 
-echo "[*] Done"
+echo "[*] Done. Check $install"
