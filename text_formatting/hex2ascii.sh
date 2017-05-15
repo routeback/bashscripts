@@ -3,7 +3,7 @@
 # Name: hex2ascii.sh
 # Auth: Frank Cass
 # Date: 20170514
-# Desc: Quickly convert hexadecimal code in the format of "\x00" into readable ascii*
+# Desc: Quickly convert hexadecimal code in the format of "\x00" into readable ascii
 #
 ###
 
