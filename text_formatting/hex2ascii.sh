@@ -11,6 +11,7 @@ if [ -z "$1" ]; then
 echo "[*] Hex to ASCII converter"
 echo "[*] Usage: $0 <Delimited hexcode \x contained in quotes>"
 echo "[*] Example: $0 \"\x74\x65\x73\x74\x0A\""
+echo "[*] Output: test"
 exit 0
 fi
 
