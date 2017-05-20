@@ -7,4 +7,6 @@
 #
 ###
 
-tcpdump ip proto \\icmp
+read -p "[*] Enter an interface name: " interface
+
+tcpdump -i $interface ip proto \\icmp
