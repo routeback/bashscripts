@@ -42,3 +42,6 @@ echo "$ EOF"
 # Background jobs
 # Daemons
 
+# Links
+
+# http://www.tldp.org/LDP/abs/html/io-redirection.html
