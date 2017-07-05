@@ -3,10 +3,17 @@
 # Name: ps1.sh
 # Auth: Frank Cass
 # Date: 20160214
-# Desc: Quickly set PS1
-#	Usage Ex. $ source ps1.sh
+# Desc: Quickly set the PS1 terminal prompt.
+#
+#	Usage: source ps1.sh
 #
 ###
+
+if [ $0 != bash ]; then
+	echo "[*] Exiting. Script must be sourced."
+	echo "[*] Try: source ps1.sh"
+	return 1
+fi
 
 function ps1_banner () {
 echo ""
@@ -23,7 +30,7 @@ echo " \"He who rejects change is the architect of decay\""; echo "" # Quote by 
 }
 
 function ps1_config () {
-echo "[*] Current configuration:" $PS1
+echo "[*] Current configuration:" $PS1; echo ""
 read -p "[*] Please input what you would like your prompt to display: " input
 export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[1;34m\]$(whoami)\[\033[1;39m\]@$input:\[\033[00m\]\$ '
 echo "[*] Updated PS1 Set!"
@@ -68,6 +75,7 @@ read -p "[*] Would you like to append your updated PS1, grep and ls colors to ~/
 	esac
 }
 
+sourced
 ps1_banner
 ps1_config
 greplscolors
