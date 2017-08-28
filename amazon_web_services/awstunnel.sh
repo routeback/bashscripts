@@ -45,10 +45,10 @@ function discover_aws_ip () { # Discover IP of AWS EC2 Instance using AWS CLI an
 	}
 
 function sshconnect() { # Establish background SSH connection with dynamic port forwarding
-	echo "[*] Establishing SSH tunnel..."; sleep 1; echo ""
+	echo "[*] Establishing SSH tunnel..."; sleep 1;
 	# Output command to terminal with a subshell ( set -x ; )
 	# SSH params: IPv4 Only, use $key, compression enabled, dynamic port forward on 9050, send to background, no commands to be executed, verbose output, connect to ubuntu@ec2serverip
-	( set -x; ssh -4 -i $key -C -D9050 -f -N -v ubuntu@$ip )
+	( set -x; ssh -4 -i $key -C -D9050 -f -N ubuntu@$ip )
 	}
 
 if [ $(ls | grep .pem | wc -l) -eq "0" ]; then # Check for any keys in the current folder
@@ -86,7 +86,7 @@ if [ $(ls | grep .pem | wc -l) -gt "1" ]; then # If multiple keys are found, let
 	sshconnect
 fi
 
-echo "[*] Tunnel Established. Process ID of SSH Connection is: $!"
-echo "[*] Tunnel started at `date`. PID: $!" >> awstunnel.log
+echo "[*] Tunnel Established as of `date`. Process ID of SSH Connection(s): `pidof ssh`" | tee -a awstunnel.log
 echo "[*] Remember to use proxychains for command line operations!"
-echo "[*] Press Enter to return to shell."; read -p "" return
+echo "[*] Configure your proxy settings to use localhost (127.0.0.1) and port 9050"
+read -p "[*] Press Enter to return to shell." return
