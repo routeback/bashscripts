@@ -148,3 +148,12 @@ bind Down last-window \; swap-pane -s tmp.1 \; kill-window -t tmp
 
 # Enable the mouse
 tmux set mouse on
+
+### Update: 20170902 
+### Tmux mouse mode has changed. To permanently enable mouse selection and scrolling:
+
+echo "set-option -g mouse on" >> ~/.tmux.conf
+
+### Additionally, check out: https://github.com/NHDaly/tmux-better-mouse-mode
+
+
