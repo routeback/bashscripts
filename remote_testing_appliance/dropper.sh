@@ -57,6 +57,9 @@ git clone https://github.com/purpleteam/snarf
 echo ""; echo "[*] Installing EyeWitness"
 git clone https://github.com/ChrisTruncer/EyeWitness
 
+echo ""; echo "[*] Installing DNSRecon"
+git clone https://github.com/darkoperator/dnsrecon
+
 echo ""; echo "[*] Installing RIDEnum"
 git clone https://github.com/trustedsec/ridenum.git
 
