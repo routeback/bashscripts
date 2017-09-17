@@ -11,7 +11,10 @@
 #	$ docker images
 #	$ docker tag <imageID> lair-backup:lair
 #	$ mkdir -p ~/docker/lairdata
-#	$ lair.sh
+#	$ chmod +x lair.sh
+# 	$ docker inspect <container id> | grep -i ipaddress
+#	# Browse to http://$ipaddress:11013
+#	# Login with admin@localhost
 #
 ###
 
