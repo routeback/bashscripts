@@ -10,11 +10,12 @@
 # 	$ docker pull routeback/starboard:lair-backup
 #	$ docker images
 #	$ docker tag <imageID> lair-backup:lair
+#	$ mkdir -p ~/docker/lairdata
 #	$ lair.sh
 #
 ###
 
-docker run -d -it -v ~/docker/lairdata:/root/lairdata -p 11013:11013 lair:fresh /bin/bash -c "cd /root/lair; ./lairstart.sh"
+docker run -d -it -v ~/docker/lairdata:/root/lairdata -p 11013:11013 lair-backup:lair /bin/bash -c "cd /root/lair; ./lairstart.sh"
 
 # -d daemon
 # -it interactive
