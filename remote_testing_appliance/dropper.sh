@@ -42,6 +42,9 @@ git clone https://github.com/gojhonny/CredCrack.git
 echo ""; echo "[*] Installing InSpy"
 git clone https://github.com/gojhonny/InSpy.git
 
+echo ""; echo "[*] Installing Raven"
+git clone https://github.com/0x09AL/raven.git
+
 echo ""; echo "[*] Installing PwnPaste"
 git clone https://github.com/gojhonny/pwnpaste.git
 
