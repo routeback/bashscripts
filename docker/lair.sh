@@ -13,7 +13,7 @@
 #	$ mkdir -p ~/docker/lairdata
 #	$ chmod +x lair.sh
 # 	$ docker inspect <container id> | grep -i ipaddress
-#	# Browse to http://$ipaddress:11013
+#	# Browse to https://$ipaddress:11013
 #	# Login with admin@localhost
 #
 ###
