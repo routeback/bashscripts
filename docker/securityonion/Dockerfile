@@ -9,4 +9,6 @@ RUN apt-get -y dist-upgrade
 RUN apt-get install -y securityonion-iso syslog-ng-core
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+ADD sosetup.conf /
+RUN sosetup -f /sosetup.conf
 CMD ["/bin/bash"]
