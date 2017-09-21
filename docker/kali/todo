@@ -1,0 +1,1 @@
+Create a Dockerfile with Ubuntu which configures the Kali repositories, as well as the docker build script and a README.md of the included packages + dropper.sh from remote_testing_appliances folder.
