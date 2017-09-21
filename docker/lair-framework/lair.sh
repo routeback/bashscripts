@@ -12,6 +12,7 @@
 #	$ docker tag <imageID> lair-backup:lair
 #	$ mkdir -p ~/docker/lairdata
 #	$ chmod +x lair.sh
+#	$ ./lair.sh
 #	# Browse to https://0.0.0.0:11013
 #	# Login with admin@localhost
 #	# Password instructions not included
