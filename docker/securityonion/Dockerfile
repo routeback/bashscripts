@@ -10,5 +10,5 @@ RUN apt-get install -y securityonion-iso syslog-ng-core
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ADD sosetup.conf /
-RUN sosetup -f /sosetup.conf
+RUN sosetup -f /sosetup.conf -y
 CMD ["/bin/bash"]
