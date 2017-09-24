@@ -11,4 +11,6 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ADD sosetup.conf /
 RUN sosetup -f /sosetup.conf -y
+RUN sudo soup
+RUN service nsm restart
 CMD ["/bin/bash"]
