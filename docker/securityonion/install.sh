@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t securityonion .
+docker build --no-cache -t securityonion .
