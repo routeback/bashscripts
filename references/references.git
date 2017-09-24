@@ -23,3 +23,9 @@ Initial Setup:
 git config --global user.name <username>
 git config --global user.email <email>
 git config --global core.editor [nano|emacs|vim]
+
+### After cloning a repository (eg. forking) and attempting to push changes, you may have to run the following
+git remote -v 
+git remote remove origin 
+git remote add origin git@github.com:user/repo.git 
+git push -u origin master
