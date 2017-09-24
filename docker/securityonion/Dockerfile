@@ -1,4 +1,5 @@
 FROM ubuntu:14.04
+ARG DEBIAN_FRONTEND=noninteractive
 RUN export DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update
 RUN apt-get install -y apt-file && apt-file update
@@ -10,7 +11,5 @@ RUN apt-get install -y securityonion-iso syslog-ng-core
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ADD sosetup.conf /
-RUN sosetup -f /sosetup.conf -y
-RUN sudo soup
-RUN service nsm restart
+ADD sosetup.sh /
 CMD ["/bin/bash"]
