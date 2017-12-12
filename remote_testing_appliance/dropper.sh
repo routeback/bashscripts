@@ -1,3 +1,4 @@
+
 #!/bin/sh
 #
 # Name: dropper.sh
@@ -12,9 +13,9 @@
 #
 ###
 
-echo "[*] dropper.sh"
-echo "[*] Desc: Quick installation script for common pentest tools."
+echo "[*] Dropper: A quick installation script for common pentest tools and resources."; sleep 1
 
+### Requirements Check ###
 which wget &>/dev/null
 if [[ $? -ne 0 ]]; then
     echo "[!] wget needs to be installed to run this script"
@@ -133,4 +134,27 @@ cd Veil; ./Install.sh -c; echo "[*] Veil Setup Complete"
 echo ""; echo "[*] Grabbing Web Payloads"
 git clone https://github.com/foospidy/payloads.git
 
-echo "[*] Done. Check $install"
+### Tar it all up ###
+echo ""; echo "[*] Downloads complete. Navigate to $install to find them."; echo ""
+read -p "[!] Would you like to create a .tar archive of $install for easy copying to a remote testing appliance? [Y/N]: " totarornottotar
+
+output=$install/dropper.tar
+
+case $totarornottotar in
+	[yY] | [yY][Ee][Ss] )
+       	       	echo "[*] Creating tar archive.";
+		tar -cf dropper.tar --exclude dropper.tar -P $install;
+		echo "[*] Tar size is: `du -h --max-depth 1` $output";
+		echo "[*] SHA256 Sum: `sha256sum $output`";
+		echo "[*] Exiting.";
+               	;;
+
+	[nN] | [n|N][O|o] )
+       	        echo "[*] Exiting.";
+	        ;;
+
+	*)
+		echo "[*] Invalid Option!"
+        	echo "[*] Exiting.";
+		;;
+esac
