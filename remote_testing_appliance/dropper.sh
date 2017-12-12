@@ -10,6 +10,7 @@
 #	TODO: Setup bashrc, including alias / export, $PATH - Currently separate reference scripts
 #	TODO: Prompt for input of other config files (read input for terminator config, ~/.ssh/config, /etc/hosts)
 #	TODO: Combine with welcome screen / aesthestics config scripts
+#	TODO: Implement feature to navigate to the $install directory and then perform a git pull to update all the tools and to prevent re-cloning of existing ones
 #
 ###
 
@@ -117,6 +118,24 @@ git clone https://github.com/urbanadventurer/WhatWeb.git
 echo ""; echo "[*] Installing WinShock (MS14_066) Check"
 git clone https://github.com/anexia-it/winshock-test.git
 
+echo ""; echo "[*] Installing AD-LDAP-Enum"
+git clone https://github.com/CroweCybersecurity/ad-ldap-enum
+
+echo ""; echo "[*] Installing Phishery"
+git clone https://github.com/ryhanson/phishery
+
+echo ""; echo "[*] Installing Mimikatz"
+git clone https://github.com/gentilkiwi/mimikatz
+
+echo ""; echo "[*] Installing Deathstar"
+git clone https://github.com/byt3bl33d3r/DeathStar
+
+echo ""; echo "[*] Installing Redsnarf"
+git clone https://github.com/nccgroup/redsnarf
+
+echo ""; echo "[*] Installing Decept Proxy"
+git clone https://github.com/Cisco-Talos/Decept
+
 ### NMAP SCRIPTS ###
 echo ""; echo "[*] Installing nmap script: vmware-fingerprint.nse"
 git clone https://gist.github.com/10695801.git; mv 10695801/vmware-fingerprint.nse /usr/share/nmap/scripts; rm -r 10695801
@@ -126,13 +145,25 @@ wget -O /usr/share/nmap/scripts/ms15-034.nse https://raw.githubusercontent.com/p
 
 echo ""; echo "[*] Updating nmap script database"; nmap --script-updatedb > /dev/null
 
-### PAYLOADS ###
-echo ""; echo "[*] Installing Veil"
+### PAYLOADS && RESOURCES ###
+echo ""; echo "[*] Grabbing Web Payloads"
+git clone https://github.com/foospidy/payloads.git
+
+echo ""; echo "[*] Installing Veil Framework"
 git clone https://github.com/Veil-Framework/Veil
 cd Veil; ./Install.sh -c; echo "[*] Veil Setup Complete"
 
-echo ""; echo "[*] Grabbing Web Payloads"
-git clone https://github.com/foospidy/payloads.git
+echo ""; echo "[*] Installing SecLists"
+git clone https://github.com/danielmiessler/SecLists
+
+echo ""; echo "[*] Installing Awesome Fuzzing"
+git clone https://github.com/secfigo/Awesome-Fuzzing
+
+echo ""; echo "[*] Installing Awesome Hacking"
+git clone https://github.com/Hack-with-Github/Awesome-Hacking
+
+echo ""; echo "[*] Installing Pentest Cheatsheet"
+git clone https://github.com/coreb1t/awesome-pentest-cheat-sheets
 
 ### Tar it all up ###
 echo ""; echo "[*] Downloads complete. Navigate to $install to find them."; echo ""
