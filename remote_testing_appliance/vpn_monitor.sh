@@ -16,14 +16,16 @@ vpn_check() {
 
 if pidof openvpn > /dev/null is true
 	then
-		echo -e "${GREEN}[*] OpenVPN is active."
+		echo -e "${GREEN}[*] OpenVPN is active." | tee vpnstate
 		sleep $sleep_seconds
 		vpn_check
 	else
-		echo -e "${RED}[!] VPN is not connected."
+		echo -e "${RED}[!] VPN is not connected." | tee vpnstate
 		sleep $sleep_seconds
 		vpn_check
 	fi
 }
 
+rm vpnstate 2>&1 > /dev/null
+touch vpnstate
 vpn_check
