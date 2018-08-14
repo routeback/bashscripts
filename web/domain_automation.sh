@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Name: letsencrypt.sh
+# Name: domain_automation.sh
 # Auth: Frank Cass
 # Date: 20180814
 # Desc: Quickly setup a Let's Encrypt certificate for a domain and subdomain using certbot and append the configuration to King-Phisher.
