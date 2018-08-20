@@ -11,6 +11,7 @@
 #	TODO: Prompt for input of other config files (read input for terminator config, ~/.ssh/config, /etc/hosts)
 #	TODO: Combine with welcome screen / aesthestics config scripts
 #	TODO: Implement feature to navigate to the $install directory and then perform a git pull to update all the tools and to prevent re-cloning of existing ones
+#	TODO: Change text from 'Installing' to 'Cloning Repository'
 #
 ###
 
@@ -19,19 +20,42 @@ echo "[*] Dropper: A quick installation script for common pentest tools and reso
 ### Requirements Check ###
 which wget &>/dev/null
 if [[ $? -ne 0 ]]; then
-    echo "[!] wget needs to be installed to run this script"
+    echo "[!] wget needs to be installed to run this script."
     exit 1
 fi
 which git &>/dev/null
 if [[ $? -ne 0 ]]; then
-    echo "[!] git needs to be installed to run this script"
+    echo "[!] git needs to be installed to run this script."
     exit 1
 fi
 
 read -p "[*] Where to install tools to? [Ex. /root/scripts]: " install
 mkdir -p $install; cd $install
 
+# Prompt user if they would like to update git repositories rather than clone them:
+# case yn in update and exit or git clone
+# gitupdate='cd ~/scripts; for i in $(ls -lrt -d -1 $PWD/* | grep "^d" | awkspaces | cut -d " " -f 9); do cd $i; git pull; cd ../; done'
+# Add logic to check if these repositories already exist.
+# If so, then git pull instead
+
 ### TOOLS ###
+
+echo ""; echo "[*] Performing apt update..."
+apt update
+
+echo ""; echo "[*] Grabbing tools from public apt repositories..."
+
+echo ""; echo "[*] Installing htop (https://hisham.hm/htop/)"
+apt install -y htop
+
+echo ""; echo "[*] Installing moreutils (https://joeyh.name/code/moreutils/)"
+apt install -y moreutils
+
+echo ""; echo "[*] Cloning reposistories from Github..."
+
+echo ""; echo "[*] Installing Discover"
+git clone https://github.com/leebaird/discover.git
+
 echo ""; echo "[*] Installing bashscripts"
 git clone https://github.com/routeback/bashscripts.git
 
@@ -49,6 +73,14 @@ git clone https://github.com/0x09AL/raven.git
 
 echo ""; echo "[*] Installing PwnPaste"
 git clone https://github.com/gojhonny/pwnpaste.git
+
+echo ""; echo "[*] Installing Metagoofil"
+git clone git clone https://github.com/laramies/metagoofil/
+cd metagoofil
+echo "[*] Downloading a patch to fix Metagoofil search error"
+git fetch origin d24a7e32ec8cc251336c51d678479786adb078ea:refs/remotes/origin/commit
+git reset --hard d24a7e32ec8cc251336c51d678479786adb078ea
+cd ..
 
 echo ""; echo "[*] Installing Blacksheepwall"
 git clone https://github.com/tomsteele/blacksheepwall.git
