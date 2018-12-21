@@ -21,6 +21,13 @@
 
 cd /root/scripts/bashscripts/focus/rain/ # doesn't seem to CD to this directory for some reason
 
+which mpv &>/dev/null
+if [[ $? -ne 0 ]]; then
+    echo "[!] mpv needs to be installed to run this script."
+    echo "[!] Try 'sudo apt install -y mpv'"
+    exit 1
+fi
+
 download() {
 	# Prompt the user to download rain sounds if they do not have them already.
 	read -p "[*] Would you like to download rain sounds from Rainymood.com? [y/n]: " yn; case $yn in
