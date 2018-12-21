@@ -1,7 +1,32 @@
 # References File: git
 
-mkdir github_project_folder
-cd github_project_folder
+# Initial Setup:
+
+git config --global user.name <username>
+git config --global user.email <email>
+git config --global core.editor [nano|emacs|vim]
+
+# Create a repo. Make sure there is at least one file in it (even just the README) Generate ssh key:
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+# Copy the contents of the file ~/.ssh/id_rsa.pub to your SSH keys in your GitHub account settings. Test SSH key:
+
+ssh -T git@github.com
+
+# Clone the repo:
+git clone git://github.com/username/your-repository
+
+# Now cd to your git clone folder and do:
+
+git remote set-url origin git@github.com:username/your-repository.git
+
+# Now try editing a file (try the README) and then do:
+
+git add -A
+git commit -am "my update msg"
+git push
+
+# Other Git Commands
 
 git init - Initialize an empty git or re-initialize an existing project
 git remote add origin https://github.com/username/myproject.git - Add remote git repo location
@@ -12,17 +37,11 @@ git commit -m “Changes made in this commit"
 git push - Push all commits
 git rebase - Update your local repo 
 
+# References
+
 Online guides: http://rogerdudler.github.io/git-guide/
-
 Git Manual: http://git-scm.com/book/en/v2
-
 Video Git: https://www.youtube.com/watch?v=8oRjP8yj2Wo&list=PLg7s6cbtAD165JTRsXh8ofwRw0PqUnkVH
-
-Initial Setup:
-
-git config --global user.name <username>
-git config --global user.email <email>
-git config --global core.editor [nano|emacs|vim]
 
 ### After cloning a repository (eg. forking) and attempting to push changes, you may have to run the following
 git remote -v 
