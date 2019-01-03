@@ -29,7 +29,7 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-read -p "[*] Where to install tools to? [Ex. /root/scripts]: " install
+read -p "[*] Where to install tools to? [Ex. /root/scripts/]: " install # Instead state that "Tools will be installed to $PWD. Y/N to proceed."
 mkdir -p $install; cd $install
 
 # Prompt user if they would like to update git repositories rather than clone them:
