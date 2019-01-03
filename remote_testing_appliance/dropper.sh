@@ -50,9 +50,9 @@ apt install -y htop
 echo ""; echo "[*] Installing moreutils (https://joeyh.name/code/moreutils/)"
 apt install -y moreutils
 
-echo ""; echo "[*] Installing Ruby-dev package for t (Twitter CLI)" 
+echo ""; echo "[*] Installing Ruby-dev package for t (Twitter CLI)"
 apt install -y ruby-dev
-echo ""; echo "[*] Gem Installing t (Twitter CLI)"
+echo ""; echo "[*] Gem Installing t (https://github.com/sferik/t)"
 gem install t
 
 echo ""; echo "[*] Cloning reposistories from Github..."
