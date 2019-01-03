@@ -50,6 +50,9 @@ apt install -y htop
 echo ""; echo "[*] Installing moreutils (https://joeyh.name/code/moreutils/)"
 apt install -y moreutils
 
+echo ""; echo "[*] Installing prips (https://gitlab.com/prips/prips)"
+apt install -y prips
+
 echo ""; echo "[*] Installing Ruby-dev package for t (Twitter CLI)"
 apt install -y ruby-dev
 echo ""; echo "[*] Gem Installing t (https://github.com/sferik/t)"
