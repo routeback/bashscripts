@@ -55,6 +55,18 @@ apt install -y ruby-dev
 echo ""; echo "[*] Gem Installing t (https://github.com/sferik/t)"
 gem install t
 
+echo ""; echo "[*] Installing OpenVPN & resolvconf"
+apt install -y openvpn resolvconf
+
+echo ""; echo "[*] Installing ProtonVPN Client pre-req's"
+apt install -y dialog python wget
+
+echo ""; echo "[*] Retrieving ProtonVPN CLI installation script and installing it"
+wget -O protonvpn-cli.sh https://raw.githubusercontent.com/ProtonVPN/protonvpn-cli/master/protonvpn-cli.sh && chmod +x protonvpn-cli.sh && ./protonvpn-cli.sh --install
+if $(test $? -ne 0)
+then echo "[*] Error installing ProtonVPN CLI tool! Moving on..."
+fi
+
 echo ""; echo "[*] Cloning reposistories from Github..."
 
 echo ""; echo "[*] Installing Discover"
@@ -225,3 +237,8 @@ case $totarornottotar in
         	echo "[*] Exiting.";
 		;;
 esac
+
+echo "[*] The following commands need to be run to complete tool setup:"
+echo "pvpn -init"
+echo "t authorize"
+echo "[*] END DROPPER INSTALLATION AT: `date`"
