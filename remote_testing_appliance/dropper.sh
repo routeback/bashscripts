@@ -53,6 +53,9 @@ apt install -y moreutils
 echo ""; echo "[*] Installing prips (https://gitlab.com/prips/prips)"
 apt install -y prips
 
+echo ""; echo "[*] Installing gcc, make, git && wget"
+apt install -y gcc make git wget
+
 echo ""; echo "[*] Installing Ruby-dev package for t (Twitter CLI)"
 apt install -y ruby-dev
 echo ""; echo "[*] Gem Installing t (https://github.com/sferik/t)"
@@ -100,6 +103,16 @@ echo "[*] Downloading a patch to fix Metagoofil search error"
 git fetch origin d24a7e32ec8cc251336c51d678479786adb078ea:refs/remotes/origin/commit
 git reset --hard d24a7e32ec8cc251336c51d678479786adb078ea
 cd ..
+
+echo ""; echo "[*] Installing Radamsa fuzzer"
+git clone https://gitlab.com/akihe/radamsa && cd radamsa && make && sudo make install
+cd ..
+
+echo ""; echo "[*] Installing mutiny-fuzzer"
+git clone https://github.com/Cisco-Talos/mutiny-fuzzer
+
+echo ""; echo "[*] Installing Decept Network Protocol Proxy"
+git clone https://github.com/Cisco-Talos/Decept
 
 echo ""; echo "[*] Installing Blacksheepwall"
 git clone https://github.com/tomsteele/blacksheepwall.git
