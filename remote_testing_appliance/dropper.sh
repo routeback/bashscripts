@@ -17,6 +17,7 @@
 echo "[*] Dropper: A quick installation script for common pentest tools and resources."; sleep 1
 
 ### Requirements Check ###
+
 which wget &>/dev/null
 if [[ $? -ne 0 ]]; then
     echo "[!] wget needs to be installed to run this script."
@@ -52,6 +53,9 @@ apt install -y moreutils
 
 echo ""; echo "[*] Installing prips (https://gitlab.com/prips/prips)"
 apt install -y prips
+
+echo ""; echo "[*] Installing gdebi for easy package installation on Debian"
+apt install -y gdebi
 
 echo ""; echo "[*] Installing gcc, make, git && wget"
 apt install -y gcc make git wget
