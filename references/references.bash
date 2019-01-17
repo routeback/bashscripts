@@ -45,3 +45,10 @@ echo "$ EOF"
 # Links
 
 # http://www.tldp.org/LDP/abs/html/io-redirection.html
+
+# Check if last step exited successfully or not
+
+if $(test $? -ne 0)
+then echo "[*] Error! Moving on..."
+fi
+
