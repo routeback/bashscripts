@@ -40,3 +40,8 @@ alias whatismyip="/root/scripts/bashscripts/remote_testing_appliance/whatismyip.
 alias whichport="cat /etc/services | grep -i " # Find a service associated to a port
 alias windirstat='ncdu' # Identify what files are consuming the most space on your system with a TUI
 alias xclip='xclip -selection clipboard' # Copy output to your clipboard
+alias nreport="~/scripts/bashscripts/reporting/nmap_report.sh"
+# Exports
+export HISTTIMEFORMAT="%d/%m/%y %T " # Log bash history with timestamps to correlate detections
+export POWERSHELL_TELEMETRY_OPTOUT=1 # Disable PowerShell Telemetry
+
