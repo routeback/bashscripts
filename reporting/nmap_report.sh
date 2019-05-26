@@ -5,6 +5,8 @@
 # Date: 20190525
 # Desc: This script will check for XML files in the current directory and generate an nmap HTML report.
 #
+# Reference: https://nmap.org/book/output-formats-output-to-html.html
+#
 ###
 
 echo "[*] Nmap HTML Report Generator"
