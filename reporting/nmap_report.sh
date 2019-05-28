@@ -4,7 +4,7 @@
 # Auth: Frank Cass
 # Date: 20190525
 # Desc: This script will check for XML files in the current directory and generate an nmap HTML report.
-# 	Additionally, this script can be used to merge multiple scans or generate multiple reports.
+# 	(Soon): Additionally, this script can be used to merge multiple scans or generate multiple reports.
 # 	Can be called at the conclusion of other scanning and reconnaissance scipts utilizing nmap for reporting automation.
 #
 # Reference: https://nmap.org/book/output-formats-output-to-html.html
