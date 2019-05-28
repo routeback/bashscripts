@@ -20,7 +20,7 @@ usage (){
 				echo "		--all"
 				echo "			Generate a report for each .XML file in the current directory"
 				echo "		--merge"
-				echo "			For all nmap.xml files, merge them into a single .XML generate a single report"
+				echo "			For all nmap.xml files, merge them into a comprehensive .XML file and generate a single report"
 				echo "		--alias"
 				echo "			Add the alias 'nreport' to your ~/.bashrc "
 				echo "		-h (--help)"
