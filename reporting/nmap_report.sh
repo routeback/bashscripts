@@ -11,13 +11,31 @@
 
 echo "[*] Nmap HTML Report Generator"
 
-# Positional Parameter Development
-#if [ "$1" != "" ]; then
-#	case parameter in
-#		--all)
-#		--merge)
-#		--alias)
-#fi
+if [[ "$#" -gt 1 ]]; then
+	echo "[*] EXIT: One parameter at a time, please!"
+	echo "[*] Try: $0 -h"
+	exit 1
+fi
+
+while [ "$1" != "" ]; do
+    case $1 in
+        -a | --all )	# For every .xml in the current directory, run the report generator against it
+                                ;;
+        -m | --merge )	# For all nmap.xml files, merge them into a single .XML and jump straight to the report generation function
+                                ;;
+        -a | --alias )	# Add the alias 'nreport' to your ~/.bashrc file, echo "alias nreport='$0'" >> ~/.bashrc
+				;;
+	-h | --help )	# This help menu of usage instructions
+				;;
+        * )                     echo "[*] EXIT: Invalid parameter supplied."
+				echo "[*] Try: $0 -h"
+                                exit 1
+    esac
+done
+
+# usage () {
+# [OPTIONAL]
+# }
 
 if [ $(ls | grep .xml | wc -l) -eq "0" ]; then # Check if any XML files are in the directory
 	echo "[!] No nmap XML files found in this directory!"
