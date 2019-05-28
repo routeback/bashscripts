@@ -11,6 +11,14 @@
 
 echo "[*] Nmap HTML Report Generator"
 
+# Positional Parameter Development
+#if [ "$1" != "" ]; then
+#	case parameter in
+#		--all)
+#		--merge)
+#		--alias)
+#fi
+
 if [ $(ls | grep .xml | wc -l) -eq "0" ]; then # Check if any XML files are in the directory
 	echo "[!] No nmap XML files found in this directory!"
 	echo "[*] Current directory: `pwd`"
@@ -42,10 +50,22 @@ if [ $(ls | grep .xml | wc -l) -gt "1" ]; then # If multiple nmap XML outputs ar
   done
 fi
 
+filename=nmap_report.html
+if [ -f $filename ]; then
+        echo -n "[*] Output file 'nmap_report.html' exists. Overwrite? (y/n): "
+        read response
+        if printf "%s\n" "$response" | grep -Eq "$(locale yesexpr)"; then
+                echo "[*] File overwrite enabled."
+        else
+                echo "[!] EXIT: Not overwriting existing file."
+                exit 1
+        fi
+fi
+
 xsltproc $key -o nmap_report.html
 
 if [[ $? -ne 0 ]]; then
-	echo "[!] Something went wrong! Exiting."
+	echo "[!] EXIT: Something went wrong! Is this an nmap.xml file?"
 	exit 1
 else
 	echo "[*] Report generated as nmap_report.html"
