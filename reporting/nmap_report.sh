@@ -26,7 +26,7 @@ if [ $(ls | grep .xml | wc -l) -gt "1" ]; then # If multiple nmap XML outputs ar
 	echo "[!] Multiple nmap XML outputs found! Pick one to generate a report."
 	PS3="[*] Selection: "
 	select FILENAME in *.xml;
-  do
+	  do
 	  case $FILENAME in
         	"$QUIT")
           		echo "[*] Exiting."
