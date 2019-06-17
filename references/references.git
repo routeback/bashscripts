@@ -48,3 +48,17 @@ git remote -v
 git remote remove origin 
 git remote add origin git@github.com:user/repo.git 
 git push -u origin master
+
+# Cleaning up your repository - From: https://github.com/18F/C2/issues/439
+# Run from the root of your repository
+# Identify large files
+git verify-pack -v .git/objects/pack/pack-a2810df48fd7ffae7db8e1ab99dece8235ab1f0d.idx | sort -k 3 -n | tail -n 10
+# To see what each file is, run this:
+git rev-list --objects --all | grep [first few chars of the sha1 from previous output]
+# Replace *.mov with the filetype you want to remove
+git filter-branch --index-filter 'git rm --cached --ignore-unmatch *.mov' -- --all
+rm -Rf .git/refs/original
+rm -Rf .git/logs/
+git gc --aggressive --prune=now
+# Verify your size-pack is now smaller
+git count-objects -v
