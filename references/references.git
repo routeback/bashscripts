@@ -37,6 +37,10 @@ git commit -m “Changes made in this commit"
 git push - Push all commits
 git rebase - Update your local repo 
 
+# View staged commits
+git cherry -v
+git log --branches --not --remotes
+
 # References
 
 Online guides: http://rogerdudler.github.io/git-guide/
@@ -62,3 +66,4 @@ rm -Rf .git/logs/
 git gc --aggressive --prune=now
 # Verify your size-pack is now smaller
 git count-objects -v
+
