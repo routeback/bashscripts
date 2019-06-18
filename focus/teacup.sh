@@ -13,7 +13,7 @@ OLDIFS="${IFS}"
 IFS=$'\n'
 message=`cat <<-EOF
 
-Create a chemical that will destroy any non water particles and leaves nothing but pure h2o.
+Create a chemical that will destroy any non water particles and leaves nothing but pure h2o. Insert the chemical into the tea cup and wait for the process to complete.
 Flip the cup by lifting it from underneath until the top rests flatly on the table, allowing the contents to pour out.
 Push the cup on its side and then lift it until all of the contents pour out.
 Pour another liquid into the cup until it reaches capacity and flows over, flushing the tea out of the cup.
