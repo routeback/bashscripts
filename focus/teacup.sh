@@ -36,6 +36,11 @@ Wait for an earthquake or other natural disaster to occur and naturally impact t
 Use a laser to pierce a hole in the cup, allowing the tea to flow out.
 Mount the tea cup to a stable surface and use a device to artifically flip the gravity within a region of space where the tea resides, allowing it to escape.
 Place a significant amount of dessicant material into the cup, allowing the tea to become absorbed. Remove the dessicant material and thusly, the tea.
+Question the possibility of a multiverse and imagine an existence where the tea does not exist within the cup. Use a device to interact with this universe and modify the existence of the cups contents within this reality.
+Use Heisenberg's uncertainty principle to perform a measurement of the tea particles momentum within the cup to such a precise degree that it cannot be determined what their position is and if the tea truly resides within the cup.
+Do not directly observe the cup and use Schrödinger's cat thought experiment to theorize whether tea existed within the cup or not, potentiall negating the need to remove tea from the cup.
+Use a device that can target the tea particles and force them to quantum tunnel through the barrier of the cup.
+Change the english language used to describe both tea and a cup to become synonymous so that removing tea from a cup is impossible as they have become known to be one and the same.
 
 EOF`
 
