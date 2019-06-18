@@ -42,6 +42,7 @@ Do not directly observe the cup and use Schrödinger's cat thought experiment to
 Use a device that can target the tea particles and force them to quantum tunnel through the barrier of the cup.
 Change the english language used to describe both tea and a cup to become synonymous so that removing tea from a cup is impossible as they have become known to be one and the same.
 Use a time machine to go back to a state prior to the cup containing any tea. Prevent tea from ever entering the cup.
+Replace the cup of tea with a cup not containing tea and lie about ever doing it.
 
 EOF`
 
