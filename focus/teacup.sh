@@ -6,6 +6,8 @@
 # Desc: This is a thought experiment to help infosec professionals think outside of the box.
 # 	Can you come up with 100 ways to remove tea from a cup?
 # 	From https://youtu.be/kiHuaVYv5q0
+#
+###
 
 echo "[*] Here are a 100 different ways to remove tea from a cup (Work in progress!): "; echo ""; method=1
 
@@ -42,4 +44,3 @@ for i in $message
 	echo "[$method]: $i";
 	method=$((method + 1))
 done
-
