@@ -44,6 +44,9 @@ Change the english language used to describe both tea and a cup to become synony
 Use a time machine to go back to a state prior to the cup containing any tea. Prevent tea from ever entering the cup.
 Replace the cup of tea with a cup not containing tea and lie about ever doing it.
 Place the cup of tea upside-down on a flat, air-tight surface and place it into a freezer. Tap the cup until the frozen contents separate from the cup and lift the cup off of the frozen tea.
+Simulate a universe within the context of the current universe where the tea does not reside within the cup.
+Use dark energy to increase the rate of expansion of the universe until a big rip scenario occurs and the tea and cup no longer exist.
+Place the cup into a large body of water and move the cup around, allowing the tea to disperse within the larger body of water. Pull the cup out.
 
 EOF`
 
