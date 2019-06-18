@@ -43,6 +43,7 @@ Use a device that can target the tea particles and force them to quantum tunnel 
 Change the english language used to describe both tea and a cup to become synonymous so that removing tea from a cup is impossible as they have become known to be one and the same.
 Use a time machine to go back to a state prior to the cup containing any tea. Prevent tea from ever entering the cup.
 Replace the cup of tea with a cup not containing tea and lie about ever doing it.
+Place the cup of tea upside-down on a flat, air-tight surface and place it into a freezer. Tap the cup until the frozen contents separate from the cup and lift the cup off of the frozen tea.
 
 EOF`
 
