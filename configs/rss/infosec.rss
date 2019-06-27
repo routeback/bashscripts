@@ -47,6 +47,9 @@
         <outline text="Data Breaches" title="Data Breaches">
             <outline type="rss" text="Have I Been Pwned?" title="Have I Been Pwned?" xmlUrl="http://feeds.feedburner.com/HaveIBeenPwnedLatestBreaches?format=xml" htmlUrl="https://feeds.feedburner.com/HaveIBeenPwnedLatestBreaches"/>
         </outline>
+        <outline text="Security Podcasts" title="Security Podcasts">
+            <outline type="rss" text="TWIT - Security Now (Steve Gibson)" title="TWIT - Security Now (Steve Gibson)" xmlUrl="http://feeds.twit.tv/sn.xml" htmlUrl="https://twit.tv/shows/security-now"/>
+        </outline>
         <outline text="Sec-Tools" title="Sec-Tools">
             <outline type="rss" text="Command Line Kung Fu" title="Command Line Kung Fu" xmlUrl="http://blog.commandlinekungfu.com/feeds/posts/default" htmlUrl="http://blog.commandlinekungfu.com/"/>
             <outline type="rss" text="PenTest &amp; Hacking Tools - powered by FeedBurner" title="PenTest &amp; Hacking Tools - powered by FeedBurner" xmlUrl="http://feeds.feedburner.com/PentestTools" htmlUrl="http://www.kitploit.com/"/>
