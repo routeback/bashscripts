@@ -7,6 +7,7 @@
     <body>
         <outline text="Events" title="Events">
             <outline type="rss" text="CTFtime.org: upcoming CTF events" title="CTFtime.org: upcoming CTF events" xmlUrl="http://ctftime.org/event/list/upcoming/rss/" htmlUrl="https://ctftime.org/event/list/upcoming/rss/"/>
+            <outline type="rss" text="Irongeek Security Videos" title="Irongeek Security Videos" xmlUrl="https://feeds.feedburner.com/IrongeeksSecuritySite" htmlUrl="http://www.irongeek.com/"/>
         </outline>
         <outline text="Security" title="Security">
             <outline type="rss" text="Dark Reading:" title="Dark Reading:" xmlUrl="http://www.darkreading.com/rss_simple.asp" htmlUrl="http://www.darkreading.com"/>
@@ -32,17 +33,18 @@
             <outline type="rss" text="Darknet - The Darkside" title="Darknet - The Darkside" xmlUrl="http://feeds.feedburner.com/darknethackers" htmlUrl="http://www.darknet.org.uk"/>
             <outline type="rss" text="The State of Security" title="The State of Security" xmlUrl="http://feeds.feedburner.com/tripwire-state-of-security" htmlUrl="http://www.tripwire.com/state-of-security"/>
             <outline type="rss" text="/dev/random" title="/dev/random" xmlUrl="http://feeds.feedburner.com/dev/rand" htmlUrl="http://blog.rootshell.be"/>
-            <outline type="rss" text="Schneier on Security" title="Schneier on Security" xmlUrl="http://www.schneier.com/blog/index.rdf" htmlUrl="https://www.schneier.com/blog/"/>
             <outline type="rss" text="Lenny Zeltser" title="Lenny Zeltser" xmlUrl="https://zeltser.com/feed/" htmlUrl="https://zeltser.com"/>
             <outline type="rss" text="Deeplinks" title="Deeplinks" xmlUrl="https://www.eff.org/rss/updates.xml" htmlUrl="https://www.eff.org/rss/updates.xml"/>
             <outline type="rss" text="Help Net Security - News" title="Help Net Security - News" xmlUrl="http://feeds2.feedburner.com/HelpNetSecurity" htmlUrl="http://www.net-security.org"/>
             <outline type="rss" text="The Hacker News [ THN ] - Best Security Blog" title="The Hacker News [ THN ] - Best Security Blog" xmlUrl="http://thehackernews.com/feeds/posts/default" htmlUrl="http://thehackernews.com/"/>
-            <outline type="rss" text="Krebs on Security" title="Krebs on Security" xmlUrl="http://krebsonsecurity.com/feed/" htmlUrl="http://krebsonsecurity.com"/>
             <outline type="rss" text="Secure Ideas: Professionally Evil!" title="Secure Ideas: Professionally Evil!" xmlUrl="http://blog.secureideas.com/feeds/posts/default" htmlUrl="http://blog.secureideas.com/"/>
             <outline type="rss" text="InfoSec Institute Resources" title="InfoSec Institute Resources" xmlUrl="http://feeds.feedburner.com/infosecResources" htmlUrl="http://resources.infosecinstitute.com"/>
             <outline type="rss" text="VRT" title="VRT" xmlUrl="http://feeds.feedburner.com/feedburner/Talos" htmlUrl="http://vrt-blog.snort.org/"/>
             <outline type="rss" text="Blog" title="Blog" xmlUrl="http://www.darkoperator.com/blog/rss.xml" htmlUrl="http://www.darkoperator.com/"/>
             <outline type="rss" text="threatpost - The First Stop for Security News" title="threatpost - The First Stop for Security News" xmlUrl="https://threatpost.com/feed/" htmlUrl="http://threatpost.com"/>
+            <outline type="rss" text="Corelan Team" title="Corelan Team" xmlUrl="https://www.corelan.be/index.php/feed/" htmlUrl="https://www.corelan.be"/>
+            <outline type="rss" text="Exploit-DB updates" title="Exploit-DB updates" xmlUrl="http://www.exploit-db.com/rss.xml" htmlUrl="https://www.exploit-db.com"/>
+            <outline type="rss" text="Carnal0wnage &amp; Attack Research Blog" title="Carnal0wnage &amp; Attack Research Blog" xmlUrl="http://carnal0wnage.attackresearch.com/feeds/posts/default" htmlUrl="http://carnal0wnage.attackresearch.com/"/>
         </outline>
         <outline text="Data Breaches" title="Data Breaches">
             <outline type="rss" text="Have I Been Pwned?" title="Have I Been Pwned?" xmlUrl="http://feeds.feedburner.com/HaveIBeenPwnedLatestBreaches?format=xml" htmlUrl="https://feeds.feedburner.com/HaveIBeenPwnedLatestBreaches"/>
@@ -58,6 +60,33 @@
             <outline type="rss" text="ToolsWatch.org – The Hackers Arsenal Tools | Repository for vFeed and DPE Projects" title="ToolsWatch.org – The Hackers Arsenal Tools | Repository for vFeed and DPE Projects" xmlUrl="http://www.toolswatch.org/feed/" htmlUrl="http://www.toolswatch.org"/>
             <outline type="rss" text="Security Tool Files ≈ Packet Storm" title="Security Tool Files ≈ Packet Storm" xmlUrl="http://rss.packetstormsecurity.com/files/tags/tool/" htmlUrl="https://packetstormsecurity.com/"/>
             <outline type="rss" text="PenTestIT" title="PenTestIT" xmlUrl="http://feeds.feedburner.com/PenTestIT/"/>
+        </outline>
+        <outline text="Blogs" title="Blogs">
+            <outline type="rss" text="Room362.com RSS Feed" title="Room362.com RSS Feed" xmlUrl="http://feeds.feedburner.com/Room362com" htmlUrl="http://www.room362.com/"/>
+            <outline type="rss" text="Schneier on Security" title="Schneier on Security" xmlUrl="http://www.schneier.com/blog/index.rdf" htmlUrl="https://www.schneier.com/blog/"/>
+            <outline type="rss" text="Krebs on Security" title="Krebs on Security" xmlUrl="http://krebsonsecurity.com/feed/" htmlUrl="http://krebsonsecurity.com"/>
+        </outline>
+        <outline text="Comics" title="Comics">
+            <outline type="rss" text="xkcd.com" title="xkcd.com" xmlUrl="https://xkcd.com/rss.xml" htmlUrl="http://xkcd.com/"/>
+        </outline>
+        <outline text="Device Vulnerabilities" title="Device Vulnerabilities">
+            <outline type="rss" text="Google Pixel Update Bulletins" title="Google Pixel Update Bulletins" xmlUrl="" htmlUrl=""/>
+<--
+Additional feeds to be created / added. May not have RSS support natively.
+
+https://aws.amazon.com/security/security-bulletins/
+https://support.apple.com/en-us/HT201222
+https://tools.cisco.com/security/center/publicationListing.x
+
+https://seclists.org/rss/fulldisclosure.rss
+https://www.cvedetails.com/vulnerability-feeds-form.php
+
+# Create Cons / Events tracker / Calendar feed, autopopulate calendar info
+
+# Gartner like feeds
+https://hmgstrategy.com/resource-center/articles/
+https://www.gartner.com/en/research/magic-quadrant
+-->
         </outline>
     </body>
 </opml>
