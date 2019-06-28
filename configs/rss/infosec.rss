@@ -62,7 +62,7 @@
             <outline type="rss" text="PenTestIT" title="PenTestIT" xmlUrl="http://feeds.feedburner.com/PenTestIT/"/>
         </outline>
         <outline text="Blogs" title="Blogs">
-            <outline type="rss" text="Room362.com RSS Feed" title="Room362.com RSS Feed" xmlUrl="http://feeds.feedburner.com/Room362com" htmlUrl="http://www.room362.com/"/>
+            <outline type="rss" text="Room362.com RSS Feed" title="Room362.com RSS Feed" xmlUrl="https://malicious.link/index.xml" htmlUrl="http://www.room362.com/"/>
             <outline type="rss" text="Schneier on Security" title="Schneier on Security" xmlUrl="http://www.schneier.com/blog/index.rdf" htmlUrl="https://www.schneier.com/blog/"/>
             <outline type="rss" text="Krebs on Security" title="Krebs on Security" xmlUrl="http://krebsonsecurity.com/feed/" htmlUrl="http://krebsonsecurity.com"/>
         </outline>
