@@ -43,6 +43,7 @@ alias xclip='xclip -selection clipboard' # Copy output to your clipboard
 alias nreport="~/scripts/bashscripts/reporting/nmap_report.sh"
 alias pserver="python3 -m http.server 8000 --bind 127.0.0.1"
 alias phpserver="php -S 127.0.0.1:80 -t ."
+alias activity='read -p "[*] Activity to log: " activity; echo "[*] `date`: $activity" >> activity.log; echo "[*] Logged to file: activity.log"'
 # Exports
 export HISTTIMEFORMAT="%d/%m/%y %T " # Log bash history with timestamps to correlate detections
 export POWERSHELL_TELEMETRY_OPTOUT=1 # Disable PowerShell Telemetry
