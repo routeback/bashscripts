@@ -14,9 +14,13 @@ Git clone or download the repository, cd to the directory and run the scripts fr
 
 ### Version
 0.1 - Initial Upload 20151216
+
 0.2 - Cleanup and re-organization 20160226
+
 0.3 - Additional scripts added 20170430
+
 0.4 - New scripts and some re-writes 2090710
+
 
 License
 ----
