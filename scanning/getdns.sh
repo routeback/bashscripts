@@ -41,7 +41,7 @@ if [ -f $1 ]
 then
 	: # Do nothing if the file actually exists.
 else
-	 echo "[!] File does not exist. Please provide a line delimeted list of hostnames."
+	 echo "[!] EXIT: File does not exist. Please provide a line delimeted list of hostnames."
 	 exit 1
 fi
 
