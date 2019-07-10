@@ -3,7 +3,9 @@ This repository is a collection of GNU/Linux bash scripts.
 
 These have been tested on Ubuntu, Debian and Kali, as well as Mac OSX 10 using iTerm. 
 
-Most of these scripts are meant to be added to the local $PATH for convenience. Refer to references/references.bashrc or below under 'Usage' for examples.
+Most of these scripts are meant to be added to the local $PATH for convenience. 
+
+Refer to references/references.bashrc or below under 'Usage' for examples.
 
 For all other scripts, refer to the comments at the beginning to determine their purpose.
 
