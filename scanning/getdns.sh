@@ -3,7 +3,7 @@
 # Name: getdns.sh
 # Auth: Frank Cass
 # Date: 20190710
-# Desc: Quickly retrieve DNS information from a list of hosts.
+# Desc: Quickly retrieve DNS and WHOIS ownership information from a list of hosts.
 #
 ###
 
@@ -50,6 +50,9 @@ if [ "$1" != "" ]; then
 	for i in $(cat $1); do
  	 echo "[*] DNS Records for: $i" | tee -a $filename; \
 	 dig -t any +nocmd +noclass +nottlid $i | grep -v ";\|;;" | awk '{$1=$1}{ print }' | sed '/^\s*$/d' | tee -a $filename; \
+	 echo "" | tee -a $filename; \
+	 echo "[*] WHOIS Records for: $i" | tee -a $filename; \
+	 whois $i | grep -i -E 'netname:|origin:|route:|descr:|organization:|netrange:|Expiry|admin email|tech email|phone:' | awk '{$1=$1}{ print }' | tee -a $filename; \
 	 echo "" | tee -a $filename; \
 	done
 else
