@@ -1,0 +1,50 @@
+logging:
+console:
+enabled: true
+format: '%(levelname)s %(message)s'
+level: warning
+file:
+enabled: true
+format: '%(asctime)s %(name)-50s %(levelname)-8s %(message)s'
+level: warning
+path: /var/log/king-phisher.log
+server:
+addresses:
+- host: 0.0.0.0
+port: 80
+ssl: false
+- host: 0.0.0.0
+port: 443
+ssl: true
+cookie_name: KPID
+data_path: /opt/king-phisher
+database: sqlite:////var/king-phisher/king-phisher.db
+fork: true
+geoip:
+database: /var/king-phisher/geoip.mmdb
+headers:
+- "Referrer-Policy: no-referrer"
+- "X-Content-Type-Options: nosniff"
+- "X-Frame-Options: DENY"
+- "X-XSS-Protection: 1; mode=block"
+pid_file: /var/run/king-phisher.pid
+plugin_install_requirements: true
+plugin_library_path: /var/king-phisher/lib
+require_id: false
+rest_api:
+enabled: false
+networks:
+- 10.0.0.0/8
+- 127.0.0.0/8
+- 172.16.0.0/12
+- 192.168.0.0/16
+token: null
+set_message_opened_on_visit: true
+setuid_username: nobody
+#host: example.com
+#ssl_cert: /etc/letsencrypt/live/example.com/cert.pem
+#ssl_key: /etc/letsencrypt/live/example.com/privkey.pem
+tracking_image: email_logo_banner.gif
+vhost_directories: true
+web_root: /var/www/html
+
