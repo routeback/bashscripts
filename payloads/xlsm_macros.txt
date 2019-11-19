@@ -1,0 +1,480 @@
+First, create your new Excel workbook and call it something like MyComputerInfo.xlsm (Macro enabled). Open it up, skip Sheet1, and rename the next 11 sheets as follows:
+
+Network
+LogicalDisk
+Processor
+Physical Memory
+Video Controller
+OnBoardDevices
+Operating System
+Printer
+Software
+Accounts
+Services
+
+Then insert this into Module 1.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Public oWMISrvEx As Object 'SWbemServicesEx
+Public oWMIObjSet As Object 'SWbemServicesObjectSet
+Public oWMIObjEx As Object 'SWbemObjectEx
+Public oWMIProp As Object 'SWbemProperty
+Public sWQL As String 'WQL Statement
+Public n
+ Public strRow As String
+ Public intRow As Integer
+
+Sub NetworkWMI()
+
+sWQL = "Select * From Win32_NetworkAdapterConfiguration"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("Network").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("Network").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("Network").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("Network").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("Network").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Network").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("Network").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("Network").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Network").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("Network").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+Sub LogicalDiskWMI()
+
+sWQL = "Select * From Win32_LogicalDisk"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("LogicalDisk").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("LogicalDisk").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("LogicalDisk").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("LogicalDisk").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("LogicalDisk").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("LogicalDisk").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("LogicalDisk").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("LogicalDisk").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("LogicalDisk").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("LogicalDisk").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
+Sub ProcessorWMI()
+
+sWQL = "Select * From Win32_Processor"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("Processor").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("Processor").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("Processor").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("Processor").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("Processor").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Processor").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("Processor").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("Processor").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Processor").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("Processor").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+Sub PhysicalMemWMI()
+
+sWQL = "Select * From Win32_PhysicalMemoryArray"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("PhysicalMem").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("PhysicalMem").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("PhysicalMem").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("PhysicalMem").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("PhysicalMem").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("PhysicalMem").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("PhysicalMem").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("PhysicalMem").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("PhysicalMem").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("PhysicalMem").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
+
+
+Sub VideoControlWMI()
+
+sWQL = "Select * From Win32_VideoController"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("VideoControl").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("VideoControl").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("VideoControl").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("VideoControl").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("VideoControl").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("VideoControl").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("VideoControl").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("VideoControl").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("VideoControl").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("VideoControl").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
+Sub OnBoardWMI()
+
+sWQL = "Select * From Win32_OnBoardDevice"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("OnBoardDevice").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("OnBoardDevice").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("OnBoardDevice").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("OnBoardDevice").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("OnBoardDevice").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("OnBoardDevice").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("OnBoardDevice").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("OnBoardDevice").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("OnBoardDevice").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("OnBoardDevice").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
+Sub OperatingWMI()
+
+sWQL = "Select * From Win32_OperatingSystem"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("Operating").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("Operating").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("Operating").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("Operating").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("Operating").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Operating").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("Operating").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("Operating").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Operating").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("Operating").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
+Sub PrinterWMI()
+
+sWQL = "Select * From Win32_Printer"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("Printer").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("Printer").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("Printer").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("Printer").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("Printer").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Printer").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("Printer").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("Printer").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Printer").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("Printer").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
+
+Sub SoftwareWMI()
+
+sWQL = "Select * From Win32_Product"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("Software").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("Software").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("Software").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("Software").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("Software").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Software").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("Software").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("Software").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Software").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("Software").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
+
+Sub AccountWMI()
+
+sWQL = "Select * From Win32_UserAccount"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("Accounts").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("Accounts").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("Accounts").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("Accounts").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("Accounts").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Accounts").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("Accounts").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("Accounts").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Accounts").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("Accounts").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
+Sub ServicesWMI()
+
+sWQL = "Select * From Win32_BaseService"
+Set oWMISrvEx = GetObject("winmgmts:root/CIMV2")
+Set oWMIObjSet = oWMISrvEx.ExecQuery(sWQL)
+intRow = 2
+strRow = Str(intRow)
+
+ThisWorkbook.Sheets("Services").Range("A1").Value = "Name"
+ThisWorkbook.Sheets("Services").Cells(1, 1).Font.Bold = True
+
+ThisWorkbook.Sheets("Services").Range("B1").Value = "Value"
+ThisWorkbook.Sheets("Services").Cells(1, 2).Font.Bold = True
+
+For Each oWMIObjEx In oWMIObjSet
+
+For Each oWMIProp In oWMIObjEx.Properties_
+If Not IsNull(oWMIProp.Value) Then
+If IsArray(oWMIProp.Value) Then
+For n = LBound(oWMIProp.Value) To UBound(oWMIProp.Value)
+Debug.Print oWMIProp.Name & "(" & n & ")", oWMIProp.Value(n)
+ThisWorkbook.Sheets("Services").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Services").Range("B" & Trim(strRow)).Value = oWMIProp.Value(n)
+ThisWorkbook.Sheets("Services").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+Next
+Else
+ThisWorkbook.Sheets("Services").Range("A" & Trim(strRow)).Value = oWMIProp.Name
+ThisWorkbook.Sheets("Services").Range("B" & Trim(strRow)).Value = oWMIProp.Value
+ThisWorkbook.Sheets("Services").Range("B" & Trim(strRow)).HorizontalAlignment = xlLeft
+intRow = intRow + 1
+strRow = Str(intRow)
+End If
+End If
+Next
+'End If
+Next
+End Sub
+
+
