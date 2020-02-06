@@ -1,0 +1,13 @@
+# Git related aliases
+alias gc='git commit' # Add a file to be commit
+alias ic='git commit -m "Initial Commit"' # Add a commit message
+alias ga='git add' # Add a file to be tracker
+alias gls='git ls-files' # View repository files
+alias glg='git log' # View history
+alias glgpretty="git log --pretty=format:'%h : %s' --date-order --graph" # View history
+alias gitlog='git reflog' # View the commit history
+alias gp='git push -u origin master' # Push your changes
+alias gpl='git pull' # Update your repository
+alias whichrepo='git remote show origin | grep Fetch' # Identify the current repository location
+alias whichrepos="/root/scripts/bashscripts/remote_testing_appliance/whichrepos.sh" # Identify the current repository location for each folder in your current directory
+alias updaterepos="/root/scripts/bashscripts/remote_testing_appliance/updaterepos.sh" # Update all of the repositories contained with your current directory

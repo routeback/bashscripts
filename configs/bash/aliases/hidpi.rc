@@ -1,0 +1,6 @@
+# Fix for VM scaling with HiDPI capable monitors (4K)
+# https://wiki.archlinux.org/index.php/HiDPI#GNOME
+alias gdown="gsettings set org.gnome.desktop.interface text-scaling-factor 1"
+alias gup="gsettings set org.gnome.desktop.interface text-scaling-factor 2"
+alias gupp="gsettings set org.gnome.desktop.interface text-scaling-factor 3"
+

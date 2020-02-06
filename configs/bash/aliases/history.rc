@@ -1,0 +1,7 @@
+# Bash History Hacks
+export HISTTIMEFORMAT="%d/%m/%y %T " # Log bash history with timestamps to correlate detections
+export HISTSIZE=50000 # Maximum number of history lines in memory
+export HISTFILESIZE=50000 # Maximum number of history lines on disk
+export HISTCONTROL=ignoredups:erasedups # Ignore duplicate lines
+shopt -s histappend # When the shell exits, append to the history file instead of overwriting it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r" # After each command, append to the history file and reread it
