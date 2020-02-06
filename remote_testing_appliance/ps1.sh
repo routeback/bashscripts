@@ -10,9 +10,9 @@
 ###
 
 if [ $0 != bash ]; then
-	echo "[*] Exiting. Script must be sourced."
-	echo "[*] Try: source ps1.sh"
-	return 1
+       echo "[*] Exiting. Script must be sourced."
+       echo "[*] Try: source ps1.sh"
+       return 1
 fi
 
 function ps1_banner () {

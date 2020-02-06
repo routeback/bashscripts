@@ -1,13 +1,8 @@
 # References File: Nmap
 
-# Common .NSE Scripts for Vulnerability Validation:
-
-http-vuln-cve2015-1635.nse
-
 # Common Discovery Scanning Techniques
 
-nmap -sP -PE -iL -n --stats-every 10s --initial-rtt-timeout=60s --max-rtt-timeout=500ms --host-timeout=5m targets.ip -oG pingsweep
-nmap -n -sn -PE --stats-every 10s --host-timeout 5s --max-retries 3 --min-rate 1500 --open --append-output -oA disco
+nmap -sP -PE -iL targets.ip -n --stats-every 10s --initial-rtt-timeout=60s --max-rtt-timeout=60s --host-timeout=5m --max-retries 3 -oG pingsweep
 cat pingsweep.grep | awk '/Up/{print $2}' >> alive.ip
 
 # Common Port Scanning Techniques
@@ -20,9 +15,14 @@ nmap -iL alive.ip --open -sSU -Pn -v -p T:21,22,23,25,53,80,86,110,135,139,143,3
 nmap -iL targets.ip --excludefile exclude.ip -sS -Pn -v --open -n --reason -p- --stats-every 10s -oA sS 
 nmap -iL targets.ip --excludefile exclude.ip -sU -Pn -v --open -n --reason -p 53,69,123,137,161,500 --stats-every 10s -oA sU 
 
+# NSE Scripts for Vulnerability Validation:
+
+http-vuln-cve2015-1635.nse
+
 # Timestamping scan results
 
--oA scan_name_`date --rfc-3339=date`  # Ex. scan_name_2016-02-26
+-oA scan-name-`date --rfc-3339=date`	# Ex. scan-name-2016-02-26
+-oA scan-name-`date -Iseconds`		# Ex. scan-name-2019-05-25T19:36:02-04:00
 
 # TCP SCAN
 

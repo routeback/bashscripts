@@ -11,10 +11,17 @@
 #
 # TODO: Implement --all and --merge functionality
 # TODO: Expand capability to detect what type of XML file is being parsed and support additional tool exports.
-#
+# TODO: Auto detect if more than one XML exists
 ###
 
 echo "[*] Nmap HTML Report Generator"
+
+which xsltproc &>/dev/null
+if [[ $? -ne 0 ]]; then
+	echo "[*] Try 'apt install -y xsltproc'"
+	echo "[!] EXIT: xsltproc needs to be installed to run this script!"
+	exit 1
+fi
 
 usage (){
 				echo "[*] Description: Quickly generate an nmap HTML report."

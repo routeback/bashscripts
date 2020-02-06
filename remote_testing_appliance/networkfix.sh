@@ -34,7 +34,7 @@
 	rm /etc/resolv.conf # Remove current resolv.conf file
 	touch /etc/resolv.conf
 	echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-        echo "nameserver 4.4.2.2" >> /etc/resolv.conf
+        echo "nameserver 1.1.1.1" >> /etc/resolv.conf
 # 	chattr +i /etc/resolv.conf
 	echo "[*] Reviewing permissions for /etc/resolv.conf: "; ls -laH /etc/resolv.conf
 
@@ -68,11 +68,11 @@
 
 
 # Additional Tests:
-# ln -s /run/resolvconf/resolv.conf
-# service resolvconf restart
-# systemctl enable resolvconf
-# apt-get install --reinstall resolvconf
+ apt-get install --reinstall resolvconf
+ ln -s /run/resolvconf/resolv.conf
+ service resolvconf restart
+ systemctl enable resolvconf
 
 # Refuse DHCP DNS Servers
-# echo "supersede domain-name-servers 8.8.8.8, 4.4.2.2;" >> /etc/dhcp/dhclient.conf
+echo "supersede domain-name-servers 8.8.8.8, 4.4.2.2;" >> /etc/dhcp/dhclient.conf
 # Also you can comment out in /etc/dhcp/dhclient.conf in request parameters that you don't want to request, for DNS it can be domain-name, domain-name-servers, domain-search

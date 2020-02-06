@@ -1,0 +1,6 @@
+Since version 0.50, binwalk has a -e option to extract files. Unfortunately, the manual doesn't tell you this, but if you invoke binwalk -version, it tells you
+
+-e, --extract=[file]          Automatically extract known file types. Load rules from file, if specified.
+Of course, you can use dd as well. For example, if you want the executable at 68264, calculate its size first (105904-68264=37640), then:
+
+$ dd if=myfile.bin of=executable.so bs=1 skip=68264 count=37640

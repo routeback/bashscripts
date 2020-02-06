@@ -1,0 +1,19 @@
+"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.01 Transitional//EN""
+   ""http://www.w3.org/TR/html4/loose.dtd"">
+<head><title>TRACE Form</title><script type=""text/javascript"">
+function sendAny(myMethod) {
+var xhr = new XMLHttpRequest();
+xhr.open(myMethod, "https://example.com",false);
+xhr.send();
+document.getElementById(""demo"").innerHTML = xhr.responseText;
+}
+</script></head>
+<body><div id=""demo""><h2>Response Goes Here</h2></div>
+<form name=""weLikeStandards"" action=""#"">
+<input type=button OnClick=""sendAny('TRACE');"" value=""Send Trace Request"">
+<input type=button OnClick=""sendAny('GET');"" value=""Send GET Request"">
+</form>
+<a href=""http://validator.w3.org/check?uri=referer""><img
+      src=""http://www.w3.org/Icons/valid-html401"" alt=""Valid HTML 4.01 Transitional"" height=""31"" width=""88""></a>
+</body></html>"												
+
