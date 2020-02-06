@@ -9,7 +9,7 @@
 #
 ###
 
-if [ $0 != bash ]; then
+if [ $0 != /bin/bash ]; then
        echo "[*] Exiting. Script must be sourced."
        echo "[*] Try: source ps1.sh"
        return 1
