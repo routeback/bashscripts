@@ -1,9 +1,40 @@
 [global_config]
-  title_font = Sans 12
   window_state = maximise
+  title_font = Sans 12
 [keybindings]
   split_horiz = <Primary><Shift>e
   split_vert = <Primary><Shift>y
+[profiles]
+  [[default]]
+    cursor_color = "#00ff00"
+    font = DejaVu Sans Mono 12
+    foreground_color = "#00ff00"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+    copy_on_selection = True
+  [[High Contrast]]
+    background_color = "#ffffff"
+    cursor_color = "#000000"
+    font = DejaVu Sans Mono 12
+    foreground_color = "#000000"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+    copy_on_selection = True
+  [[Transparent]]
+    background_color = "#300a24"
+    background_darkness = 0.43
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = DejaVu Sans Mono 10
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollback_infinite = True
+    use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -13,23 +44,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    background_image = None
-    copy_on_selection = True
-    font = DejaVu Sans Mono 12
-    foreground_color = "#00ff00"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
-  [[High Contrast]]
-    background_color = "#ffffff"
-    background_image = None
-    copy_on_selection = True
-    font = DejaVu Sans Mono 12
-    foreground_color = "#000000"
-    scrollback_infinite = True
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False
