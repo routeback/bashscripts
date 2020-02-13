@@ -8,7 +8,7 @@
 ###
 
 # Request the webpage and output to a file
-curl https://www.geoiptool.com/ -o /tmp/geoip_lookup.txt -s
+curl -L https://www.geoiptool.com/ -o /tmp/geoip_lookup.txt -s
 
 # Parse the file into a readable format
 cat /tmp/geoip_lookup.txt | grep -A 10 '<div class="data-item">' | grep -A 1 'City\|Country' | awk '{$1=$1}{ print }' | sort -n | uniq | tail -n 2 | sed 's/<span>//g' | sed 's/<\/span>//g' | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/, /g' > /tmp/geoip_location.txt
