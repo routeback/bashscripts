@@ -8,8 +8,8 @@ echo "[*] add.sh - Quickly add the *.rc files in this directory to your ~/.bashr
 read -p "[*] Must be run in the same directory as the *.rc files; Press enter to continue." enter
 echo ""
 
-for i in $(ls | grep rc); do echo "if [ -f /root/bashscripts/configs/bash/aliases/$i ]; then
-. /root/bashscripts/configs/bash/aliases/$i
+for i in $(ls | grep rc); do echo "if [ -f `pwd`/$i ]; then
+. `pwd`/$i
 fi; " | tee -a ~/.bashrc; done
 
 echo ""
