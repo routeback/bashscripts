@@ -9,6 +9,12 @@
 #
 ###
 
+# Blue on White:
+# export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[1;34m\]root\[\033[1;37m\]@System:'
+
+# High Contrast Black on White:
+# export PS1='\[\e]0;\u1\h: \w\a\]${^Cbian_chroot:+($debian_chroot)}\[\033[1;34m\]root\[\033[0;00m\]@System:'
+
 if [ $0 != /bin/bash ]; then
        echo "[*] Exiting. Script must be sourced."
        echo "[*] Try: source ps1.sh"
