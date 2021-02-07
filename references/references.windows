@@ -47,3 +47,26 @@ To run the Users tool for Windows 95/98/Me, type "control inetcpl.cpl users" (wi
 netsh int ip reset reset.txt
 netsh winsock reset
 netsh advfirewall reset
+
+### View Command Prompt History Using F7 Key ###
+The Command Prompt window will show you history for only the current session. 
+If you close the Command prompt window, and on the next opening of CMD, all the previous commands will be gone.
+Now open Command Prompt window, and start executing your commands. 
+Suddenly you need the previous command you just wrote, but it just skipped from your mind.
+For this, pressF7 key, and a pop-up window will appear to give you a list of all recently executed commands. Use Up and Down arrow to navigate towards your required command
+
+And after reaching to it, press Enter key. And here you are. Your command is executed.
+
+View Command Prompt History Using Doskey
+To have the entire list of your Command Prompt window’s commands, on the window as a text, you have to type the following command in your CMD window.
+Because sometimes, you do not like pop-up windows all the time. That’s why I am giving you an easy and clean way to see the history of your Command Prompt window.
+Open CMD from the Start Menu and type “doskey /History". As you typed, all the commands which you typed latterly are shown to you on your CMD window.
+
+Use Up and Down arrow to select the command. Or you can also Copy and Paste the commands from the history which has appeared on your screen, within the window of CMD.
+Saving Command Prompt History
+You can only view the history of commands as long as your CMD window stays open. When you close it, all commands will be gone with no mark of history. What if you need the same commands for the next use of CMD window, but you do not know that which commands you executed before.
+You can save your commands list as a TXT, HTML, CSV or RTF file before closing the window so that you can have a backup of your entered commands.
+Type the following command in your Command Prompt window
+doskey /HISTORY > history.txt
+
+Your file will be saved in the Users folder
