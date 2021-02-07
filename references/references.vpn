@@ -1,0 +1,10 @@
+If you want all of your traffic to come from the VPN server directly, there is a key setting to be aware of:
+
+redirect-gateway def1
+
+To implent the gateway redirection, you have a couple options:
+
+You can add an option to your lab-vpn.conf file: 
+  - redirect-gateway def1
+You can include this option when you start openvpn:
+  - openvpn --config lab-vpn.conf --redirect-gateway
