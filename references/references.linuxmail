@@ -1,0 +1,11 @@
+PostFix Administration
+
+Manage Postfix Mail Queue
+
+1. mailq to list unsent messages in the queue
+2. postcat -q [qID] to read contents of messages
+3. postsuper -d [qID] to delete from queue
+
+# Mutt basic mail
+
+apt install mutt
