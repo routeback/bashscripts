@@ -67,3 +67,8 @@ git gc --aggressive --prune=now
 # Verify your size-pack is now smaller
 git count-objects -v
 
+# Rollback Git
+git reset --hard HEAD^1 will take you back one commit from what you pulled. 
+If you want it back to the state it was in before you pulled, use git reset --hard HEAD@{1}. 
+The @{1} tracks where the head was at before the last operation that changed it in your local repo, so it will go back several commits if several were pushed before you did your pull. 
+Also see git reflog to show the entire list.
