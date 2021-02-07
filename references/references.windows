@@ -70,3 +70,8 @@ Type the following command in your Command Prompt window
 doskey /HISTORY > history.txt
 
 Your file will be saved in the Users folder
+
+### Search for a specific string in a folder using Findstr ###
+You can also specify a folder for finding a specific text string in multiple files.
+findstr /M “reader” “C:\Users\Usman\Desktop\*”
+This will give a list of all files with full path containing the text string “reader”. If you don’t specify /M, the output will show the exact text string along with the file name where it found the string.
