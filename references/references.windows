@@ -42,3 +42,8 @@ Windows substitutes the name of the tool you want to run for %1%. For example:
 To run the Users tool in Control Panel, type control Ncpa.cpl users, and then press ENTER.
 
 To run the Users tool for Windows 95/98/Me, type "control inetcpl.cpl users" (without the quotation marks) and then press ENTER.
+
+### Quick Fix for Networking Issues ###
+netsh int ip reset reset.txt
+netsh winsock reset
+netsh advfirewall reset
