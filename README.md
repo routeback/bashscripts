@@ -13,7 +13,7 @@ For all other scripts, refer to the comments at the beginning to determine their
 Git clone or download the repository, cd to the directory and run the scripts from a bash shell.
 
 ### Version
-0.1 - Initial Upload 20151216
+0.1 - Initial Upload 2015-12-16
 
 0.2 - Cleanup and re-organization 2016-02-26
 
