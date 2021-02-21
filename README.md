@@ -1,13 +1,11 @@
 # Bash scripts
 This repository is a collection of GNU/Linux Bash scripts.  
+   - They have been tested on Ubuntu, Debian and Kali, as well as Mac OSX using iTerm. 
+   - Most of these scripts are meant to be added to the local $PATH for convenience. 
+   - Refer to references/references.bashrc or below under 'Usage' for examples.
 
-These have been tested on Ubuntu, Debian and Kali, as well as Mac OSX using iTerm. 
-
-Most of these scripts are meant to be added to the local $PATH for convenience. 
-
-Refer to references/references.bashrc or below under 'Usage' for examples.
-
-For all other scripts, refer to the comments at the beginning to determine their purpose.
+## Instructions
+Refer to the comments at the beginning of each script to determine its purpose.
 
 ### Usage
 Git clone or download the repository, cd to the directory and run the scripts from a bash shell.
