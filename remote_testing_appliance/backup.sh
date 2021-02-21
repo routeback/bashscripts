@@ -10,10 +10,10 @@
 ###
 
 # Note: Currently only intended to be run once to automate the backup process, then backup_files.txt can be edited for including new incremental backups.
-# Could be improved by creating parameter based input instead of interactive prompting and reading of STDIN.
+# Note: Script could be improved by opting for parameter based input instead of interactive prompting and reading of STDIN, would allow for greater automation and script wrapping.
 
 # Check for rsync, sftp, ssh, cron
-# Add tar | gzip logic for compressed backupss
+# Add tar | gzip logic for compressed backups
 
 echo "[*] $0; sleep 1
 read -p "[*] Enter username for remote backup: " user
