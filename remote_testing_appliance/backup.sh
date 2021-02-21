@@ -11,6 +11,7 @@
 # Could be improved by creating parameter based input instead of interactive prompting and reading of STDIN.
 
 # Check for rsync, sftp, ssh, cron
+# Add tar | gzip logic for compressed backupss
 
 echo "[*] $0; sleep 1
 read -p "[*] Enter username for remote backup: " user
