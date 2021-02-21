@@ -19,6 +19,8 @@
 #
 	# This can allow the tool to work well for internals as well by ignoring whois checks etc. by only using local scanning functions w/ Nmap etc. and by specifying an internal DNS server for name resolution. 
 	# Additionally, this tool can have internal specific functions like NBTScan, broadcast scanning etc. However, this may overlap with existing tooling such as Discover and Rumble and may not be necessary, though having a single functioning script with minimal setup that is easily portable can be of value.
+# 
+# Add identification of backend CMS / Robots.txt, Sitemap.xml, Combine w/ RAWR, script out scan test for SSLChecks
 #
 # Database integration and thoughts - Data aggregation and correlation
 	# Log each command that is executed and use a primary key ID value to associate it with the expected output, if expected output is null, then re-run command where key ID = n
