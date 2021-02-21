@@ -83,4 +83,4 @@ echo "[*] Creating cron file (~/scripts/backup.cron) and adding to crontab."
 echo "@daily /home/$user/scripts/autobackup.sh" > ~/scripts/backup.cron
 crontab ~/scripts/backup.cron
 
-echo "[*] All done! Be sure to update ~/scripts/backup_files.txt with files and folders you would like backed up."
+echo "[*] All done! Be sure to update ~/scripts/backup_files.txt with files and folders with the full path you would like backed up."
