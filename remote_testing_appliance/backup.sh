@@ -73,7 +73,7 @@ chmod u+x ~/scripts/autobackup.sh
 # Insert backup logic into script
 echo "SUFFIX=$(date +%j) >> ~/scripts/autobackup.sh
 echo "# Prints current day of year in 001-365 format." >> ~/scripts/autobackup.sh
-echo "rsync -ab --recursive --files-from='~/scripts/backup_files.txt' --backup-dir=backup_$SUFFIX --delete --exclude=backup --filter='protect backup_*' /home/$user/ remote_backup:backups/" >> ~/scripts/autobackup.sh
+echo "rsync -ab --compress --stats --no-blocking-io --outbuf=LINE --recursive --files-from='~/scripts/backup_files.txt' --backup-dir=backup_$SUFFIX --delete --exclude=backup --filter='protect backup_*' /home/$user/ remote_backup:backups/" >> ~/scripts/autobackup.sh
 
 # Create the backup_files.txt list
 echo "[*] Creating ~/scripts/backup_files.txt"
