@@ -5,6 +5,8 @@
 # Date: 20210220
 # Desc: Automate remote incremental backups with rsync, ssh and cron.
 # 
+# Reference: https://www.jveweb.net/en/archives/2011/02/using-rsync-and-cron-to-automate-incremental-backups.html
+#
 ###
 
 # Note: Currently only intended to be run once to automate the backup process, then backup_files.txt can be edited for including new incremental backups.
