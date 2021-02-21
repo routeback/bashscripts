@@ -13,6 +13,30 @@
 # Note: Script could be improved by opting for parameter based input instead of interactive prompting and reading of STDIN, would allow for greater automation and script wrapping.
 
 # Check for rsync, sftp, ssh, cron
+which rsync &>/dev/null
+if [[ $? -ne 0 ]]; then
+    echo "[!] rsync needs to be installed to run this script."
+    exit 1
+fi
+
+which sftp &>/dev/null
+if [[ $? -ne 0 ]]; then
+    echo "[!] sftp needs to be installed to run this script."
+    exit 1
+fi
+
+which ssh &>/dev/null
+if [[ $? -ne 0 ]]; then
+    echo "[!] ssh needs to be installed to run this script."
+    exit 1
+fi
+
+which cron &>/dev/null
+if [[ $? -ne 0 ]]; then
+    echo "[!] cron needs to be installed to run this script."
+    exit 1
+fi
+
 # Add tar | gzip logic for compressed backups
 
 echo "[*] $0; sleep 1
