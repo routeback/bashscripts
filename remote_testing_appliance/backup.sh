@@ -13,7 +13,7 @@
 # Note: Currently only intended to be run once to automate the backup process, then backup_files.txt can be edited for including new incremental backups.
 # Note: Script could be improved by opting for parameter based input instead of interactive prompting and reading of STDIN, would allow for greater automation and script wrapping.
 
-# Check for rsync, sftp, ssh, cron
+# Check for rsync, sftp, ssh, cron - Add tar and gzip if implementing
 which rsync &>/dev/null
 if [[ $? -ne 0 ]]; then
     echo "[!] rsync needs to be installed to run this script."
