@@ -9,6 +9,7 @@
 #
 ###
 
+# Note: Prompt for local backup directory installation or remote backup, then skip SFTP/Keygen etc. steps and prompt for local backup path
 # Note: Currently only intended to be run once to automate the backup process, then backup_files.txt can be edited for including new incremental backups.
 # Note: Script could be improved by opting for parameter based input instead of interactive prompting and reading of STDIN, would allow for greater automation and script wrapping.
 
