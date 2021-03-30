@@ -1,0 +1,16 @@
+# Note: This document (as well as other references.txt) should be written in markdown, or other standardized format and collated into a larger work that is more accessible.
+
+# Wireshark filters
+
+## Wireshark Filter by IP
+ip.addr == 1.1.1.1 # Both Source / Destination
+ip.dst == 1.1.1.1 # Destination
+ip.src == 1.1.1.1 # Source
+ip.addr >= 192.168.1.1 and ip.addr <= 192.168.1.10 # Filter range
+ip.addr == 192.168.1.1 and ip.addr == 192.168.1.2 # Filter multiple
+ip.addr == 192.168.1.0/24 # Filter subnet
+!(ip.addr == 192.168.1.100) # Filter out, logical not operation
+
+## Filter by Port
+tcp.port == 25
+udp.port == 123
