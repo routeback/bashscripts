@@ -1,5 +1,5 @@
 # Bash scripts
-This repository is a collection of GNU/Linux Bash scripts.  
+This repository is a collection of [GNU Bash](https://www.gnu.org/software/bash/) scripts.  
    - They have been tested on Ubuntu, Debian and Kali, as well as Mac OSX using iTerm. 
    - Most of these scripts are meant to be added to the local $PATH for convenience. 
    - Refer to references/references.bashrc or below under 'Usage' for examples.
